@@ -87,63 +87,6 @@
     padding-left: 10px;
     border-left: 3px solid #409eff;
   }
-
-  /* 端到端流程 */
-  .flow-section {
-    padding: 0 40px 24px;
-  }
-  .flow-box {
-    background: linear-gradient(135deg, #1a2a3a 0%, #162232 100%);
-    border: 1px solid rgba(64,158,255,0.15);
-    border-radius: 12px;
-    padding: 20px;
-  }
-  .flow-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #c0ccda;
-    margin-bottom: 16px;
-    padding-left: 10px;
-    border-left: 3px solid #67c23a;
-  }
-  .flow-row {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 16px;
-    flex-wrap: wrap;
-  }
-  .flow-card {
-    background: #0f1923;
-    border: 1px solid rgba(64,158,255,0.1);
-    border-radius: 10px;
-    padding: 16px 20px;
-    flex: 1;
-    min-width: 280px;
-  }
-  .flow-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-  .flow-card-name {
-    font-size: 16px;
-    font-weight: 600;
-  }
-  .flow-card-count {
-    font-size: 20px;
-    font-weight: 700;
-  }
-  .flow-card-name.erp { color: #409eff; }
-  .flow-card-count.erp { color: #409eff; }
-  .flow-card-name.oa { color: #607080; }
-  .flow-card-count.oa { color: #607080; }
-  .flow-steps {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px;
-  }
   .flow-step {
     background: rgba(64,158,255,0.1);
     border: 1px solid rgba(64,158,255,0.2);
@@ -158,6 +101,11 @@
     border-color: rgba(64,158,255,0.4);
     color: #c0ccda;
   }
+  .flow-step.new {
+    background: rgba(103,194,58,0.12);
+    border-color: rgba(103,194,58,0.4);
+    color: #b4e8a0;
+  }
   .flow-step.disabled {
     background: rgba(96,112,128,0.1);
     border-color: rgba(96,112,128,0.2);
@@ -170,68 +118,6 @@
     font-size: 16px;
     padding: 0 4px;
   }
-
-  /* 优化与问题反馈 */
-  .issue-section {
-    padding: 0 40px 24px;
-  }
-  .issue-box {
-    background: linear-gradient(135deg, #1a2a3a 0%, #162232 100%);
-    border: 1px solid rgba(64,158,255,0.15);
-    border-radius: 12px;
-    padding: 20px;
-  }
-  .issue-title {
-    font-size: 15px;
-    font-weight: 600;
-    color: #c0ccda;
-    margin-bottom: 16px;
-    padding-left: 10px;
-    border-left: 3px solid #f56c6c;
-  }
-  .dev-progress {
-    background: #0f1923;
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin-bottom: 16px;
-  }
-  .dev-progress-label {
-    font-size: 13px;
-    color: #8899aa;
-    margin-bottom: 10px;
-  }
-  .dev-bar-wrap {
-    display: flex;
-    height: 28px;
-    border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 8px;
-  }
-  .dev-bar-done { background: #67c23a; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #0f1923; font-weight: 600; }
-  .dev-bar-verify { background: #e6a23c; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #0f1923; font-weight: 600; }
-  .dev-bar-todo { background: #f56c6c; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #0f1923; font-weight: 600; }
-  .dev-legend {
-    display: flex;
-    gap: 20px;
-    font-size: 12px;
-    color: #8899aa;
-  }
-  .dev-legend span { display: flex; align-items: center; gap: 4px; }
-  .dev-legend .dot { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
-  .issue-group {
-    margin-bottom: 14px;
-  }
-  .issue-group-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: #e6a23c;
-    margin-bottom: 8px;
-    padding-left: 8px;
-    border-left: 2px solid #e6a23c;
-  }
-  .issue-group-title.sys { color: #f56c6c; border-left-color: #f56c6c; }
-  .issue-group-title.train { color: #409eff; border-left-color: #409eff; }
-  .issue-group-title.board { color: #67c23a; border-left-color: #67c23a; }
   .issue-list {
     list-style: none;
     padding-left: 10px;
@@ -250,15 +136,65 @@
     left: 0;
     color: #4a5568;
   }
-
   .chart-container {
     width: 100%;
     height: 380px;
   }
+  /* 每日更新模块 */
+  .daily-update-section {
+    padding: 0 40px 24px;
+  }
+  .daily-update-box {
+    background: linear-gradient(135deg, #1a2a3a 0%, #162232 100%);
+    border: 1px solid rgba(103,194,58,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .daily-update-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #c0ccda;
+    margin-bottom: 14px;
+    padding-left: 10px;
+    border-left: 3px solid #67c23a;
+  }
+  .daily-update-list {
+    list-style: none;
+    padding-left: 10px;
+  }
+  .daily-update-list li {
+    font-size: 14px;
+    color: #c0ccda;
+    padding: 8px 0;
+    line-height: 1.7;
+    position: relative;
+    padding-left: 20px;
+    border-bottom: 1px solid rgba(64,158,255,0.06);
+  }
+  .daily-update-list li:last-child {
+    border-bottom: none;
+  }
+  .daily-update-list li::before {
+    content: '📌';
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+  }
+  .new-badge {
+    display: inline-block;
+    background: rgba(103,194,58,0.2);
+    border: 1px solid rgba(103,194,58,0.4);
+    color: #67c23a;
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    font-weight: 600;
+  }
   @media (max-width: 900px) {
     .summary-cards { grid-template-columns: repeat(2, 1fr); padding: 16px; }
     .charts-row { grid-template-columns: 1fr; padding: 0 16px 16px; }
-    .flow-section, .issue-section { padding: 0 16px 16px; }
+    .daily-update-section { padding: 0 16px 16px; }
     .header { padding: 16px; }
   }
 </style>
@@ -267,36 +203,36 @@
 
 <div class="header">
   <h1>MES 运营数据报表</h1>
-  <span class="date">数据周期：2026-04-11 至 2026-06-12</span>
+  <span class="date">数据周期：2026-04-11 至 2026-06-15</span>
 </div>
 
 <div class="summary-cards">
   <div class="card">
     <div class="label">累计在线用户天数</div>
-    <div class="value" id="totalDays">--</div>
-    <div class="sub">日均在线人数：<span id="avgOnline">--</span></div>
+    <div class="value">65</div>
+    <div class="sub">日均在线人数：<span>14.8</span></div>
   </div>
   <div class="card">
     <div class="label">工单总数</div>
-    <div class="value" id="totalOrders">--</div>
-    <div class="sub">完成率：<span id="orderRate">--</span></div>
+    <div class="value">203</div>
+    <div class="sub">完成率：<span>25.6%</span></div>
   </div>
   <div class="card">
     <div class="label">问题总数</div>
-    <div class="value" id="totalIssues">--</div>
-    <div class="sub">已解决：<span id="doneIssues">--</span></div>
+    <div class="value">117</div>
+    <div class="sub">已解决：<span>98</span></div>
   </div>
   <div class="card">
     <div class="label">群问题峰值</div>
-    <div class="value" id="peakIssue">--</div>
-    <div class="sub">峰值日期：<span id="peakDate">--</span></div>
+    <div class="value">19</div>
+    <div class="sub">峰值日期：<span>6/8</span></div>
   </div>
 </div>
 
 <!-- 用户在线人数 -->
 <div class="charts-row">
   <div class="chart-box full">
-    <div class="chart-title">📈 用户每日在线人数趋势 <span id="onlineTotal" style="font-size:13px; color:#409eff; margin-left:12px;">累计在线：-- 人次</span></div>
+    <div class="chart-title">📈 用户每日在线人数趋势 <span style="font-size:13px; color:#409eff; margin-left:12px;">累计在线：961 人次</span></div>
     <div class="chart-container" id="chartOnline"></div>
   </div>
 </div>
@@ -304,9 +240,8 @@
 <!-- 每日群问题 + 总结 -->
 <div class="charts-row">
   <div class="chart-box full">
-    <div class="chart-title">📊 每日群问题数量统计（按类型堆叠） <span id="issueTotal" style="font-size:13px; color:#67c23a; margin-left:12px;">累计问题：-- 个</span></div>
+    <div class="chart-title">📊 每日群问题数量统计（按类型堆叠） <span style="font-size:13px; color:#67c23a; margin-left:12px;">累计问题：332 个</span></div>
     <div class="chart-container" id="chartIssues"></div>
-    <!-- 群问题总结 -->
     <div style="margin-top:16px; border-top:1px solid rgba(64,158,255,0.1); padding-top:14px;">
       <div style="font-size:14px; font-weight:600; color:#c0ccda; margin-bottom:10px; padding-left:8px; border-left:3px solid #f56c6c;">⚠️ 群问题总结</div>
       <div style="display:flex; gap:20px; flex-wrap:wrap;">
@@ -322,7 +257,7 @@
         <div style="flex:1; min-width:240px;">
           <div style="font-size:13px; font-weight:600; color:#f56c6c; margin-bottom:6px; padding-left:8px; border-left:2px solid #f56c6c;">系统问题</div>
           <ul class="issue-list">
-            <li>上线新功能存在一些 bug</li>
+            <li>上线新功能，存在一些bug</li>
             <li>接口失败导致入库失败</li>
             <li>系统脏数据</li>
           </ul>
@@ -332,12 +267,11 @@
   </div>
 </div>
 
-<!-- 工单 + 问题反馈（各自带总结） -->
+<!-- 工单 + 问题反馈 -->
 <div class="charts-row">
   <div class="chart-box">
     <div class="chart-title">📋 工单类型运行情况</div>
     <div class="chart-container" id="chartOrders"></div>
-    <!-- 工单验证总结 -->
     <div style="margin-top:16px; border-top:1px solid rgba(64,158,255,0.1); padding-top:14px;">
       <div style="font-size:14px; font-weight:600; color:#c0ccda; margin-bottom:8px; padding-left:8px; border-left:3px solid #409eff;">📋 工单验证总结</div>
       <p style="font-size:13px; color:#a0aec0; line-height:1.8; padding-left:8px;">系统上线后已覆盖样品单、小批量、量产单、返工工单四类业务工单。其中返工工单对应功能本周才开发完成，暂未投入实际业务使用，暂无单据产生；当前系统有效流转工单集中在样品、小批量、量产三类。整体工单完工率偏低，大量单据处于在途执行阶段，工单闭环流转效率有待改善。返工工单全流程验证工作计划于下周启动。</p>
@@ -367,6 +301,16 @@
           <span style="font-size:11px;color:#e6a23c;margin-left:8px;">*样品单入库仓位有区别</span>
         </div>
       </div>
+      <div style="margin-bottom:12px;">
+        <div style="font-size:13px; font-weight:600; color:#b4e8a0; margin-bottom:6px;">ERP → MES：实验验证单 <span class="new-badge">新增</span></div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
+          <span class="flow-step new">ERP下单</span><span class="flow-arrow" style="color:#67c23a;">→</span>
+          <span class="flow-step new">MES接受工艺路线确认</span><span class="flow-arrow" style="color:#67c23a;">→</span>
+          <span class="flow-step new">物料调拨<span style="font-size:10px;color:#67c23a;margin-left:4px;">（晶圆不受工单卡控，不受物料有效期卡控）</span></span><span class="flow-arrow" style="color:#67c23a;">→</span>
+          <span class="flow-step new">生产执行</span><span class="flow-arrow" style="color:#67c23a;">→</span>
+          <span class="flow-step new">包装入库</span>
+        </div>
+      </div>
       <div>
         <div style="font-size:13px; font-weight:600; color:#607080; margin-bottom:6px;">MES → OA</div>
         <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
@@ -378,10 +322,8 @@
   <div class="chart-box">
     <div class="chart-title">🔍 问题反馈分类统计</div>
     <div class="chart-container" id="chartFeedback"></div>
-    <!-- 优化总结 -->
     <div style="margin-top:16px; border-top:1px solid rgba(64,158,255,0.1); padding-top:14px;">
       <div style="font-size:14px; font-weight:600; color:#c0ccda; margin-bottom:8px; padding-left:8px; border-left:3px solid #f56c6c;">📋 问题反馈总结</div>
-      <!-- 验收前后对比 -->
       <div style="background:#0f1923; border-radius:8px; padding:12px 16px; margin-bottom:10px;">
         <div style="font-size:13px; color:#8899aa; margin-bottom:8px;">优化项验收前后项目开发情况</div>
         <div style="display:flex; gap:12px;">
@@ -398,7 +340,7 @@
             <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
               <span style="font-size:12px; color:#67c23a;">完成 1</span>
               <span style="font-size:12px; color:#e6a23c;">解决中 4</span>
-              <span style="font-size:12px; color:#f56c6c;">未开始 6</span>
+              <span style="font-size:12px; color:#f56c6c;">未开始 7</span>
             </div>
           </div>
         </div>
@@ -407,7 +349,6 @@
         <div style="font-size:13px; font-weight:600; color:#e6a23c; margin-bottom:6px; padding-left:8px; border-left:2px solid #e6a23c;">目前除去优化存在的问题总结</div>
         <ul class="issue-list">
           <li>退料接口，报工报料接口问题</li>
-          <li>包装入库（由引发流程产生）：多工单无法入库</li>
           <li>数据类问题（工艺路线变更）导致多工单无法正常报工（MES 已做卡控，后续会减少）</li>
           <li>流程卡模板一直存在乱序、少工步情况（需要一直排查维护）</li>
           <li>研发 BOM 更新产品编码导致入库标签数据不一致</li>
@@ -416,8 +357,8 @@
       <div style="margin-bottom:8px;">
         <div style="font-size:13px; font-weight:600; color:#409eff; margin-bottom:4px; padding-left:8px; border-left:2px solid #409eff;">培训方面</div>
         <ul class="issue-list">
-          <li>质量培训、IT 培训尚未完成</li>
-          <li>质量模块功能还未投入现场使用（如数据采集等）</li>
+          <li>质量培训、IT 培训</li>
+          <li>质量的模块功能还没现场使用（数据采集等）</li>
         </ul>
       </div>
       <div>
@@ -430,64 +371,48 @@
   </div>
 </div>
 
+<!-- 每日更新模块 -->
+<div class="daily-update-section">
+  <div class="daily-update-box">
+    <div class="daily-update-title">📌 每日更新</div>
+    <ul class="daily-update-list">
+      <li>1.设备组合功能上线,6.16培训</li>
+          <li>2.今日探讨关于物料调拨规则卡控调整，根据工单类型（样品单，实验验证单与量产单调料调拨规则调整</li>
+          <li>3.新增验收后需求（MES需要可以查询入库批次信息）</li>
+          
+    </ul>
+  </div>
+</div>
+
 <script>
 // ========== DATA ==========
 const onlineData = {
-  dates: ['4/11','4/12','4/13','4/14','4/15','4/16','4/17','4/18','4/19','4/20','4/21','4/22','4/23','4/24','4/25','4/26','4/27','4/28','4/29','4/30','5/1','5/3','5/4','5/5','5/6','5/7','5/8','5/9','5/10','5/11','5/12','5/13','5/14','5/15','5/16','5/17','5/18','5/19','5/20','5/21','5/22','5/23','5/24','5/25','5/26','5/27','5/28','5/29','5/30','5/31','6/1','6/2','6/3','6/4','6/5','6/6','6/7','6/8','6/9','6/10','6/11','6/12'],
-  values: [6,4,10,13,10,13,18,10,10,15,23,15,16,14,8,12,15,17,17,16,5,9,10,7,17,12,15,16,10,15,14,12,16,19,15,4,15,21,20,25,24,13,13,23,19,22,16,15,15,6,14,16,19,22,18,13,15,16,22,19,26,14]
+  dates: ["4/11", "4/12", "4/13", "4/14", "4/15", "4/16", "4/17", "4/18", "4/19", "4/20", "4/21", "4/22", "4/23", "4/24", "4/25", "4/26", "4/27", "4/28", "4/29", "4/30", "5/1", "5/3", "5/4", "5/5", "5/6", "5/7", "5/8", "5/9", "5/10", "5/11", "5/12", "5/13", "5/14", "5/15", "5/16", "5/17", "5/18", "5/19", "5/20", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", "5/30", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/10", "6/11", "6/12", "6/13", "6/14", "6/15"],
+  values: [6, 4, 10, 13, 10, 13, 18, 10, 10, 15, 23, 15, 16, 14, 8, 12, 15, 17, 17, 16, 5, 9, 10, 7, 17, 12, 15, 16, 10, 15, 14, 12, 16, 19, 15, 4, 15, 21, 20, 25, 24, 13, 13, 23, 19, 22, 16, 15, 15, 6, 14, 16, 19, 22, 18, 13, 15, 16, 22, 19, 26, 14, 15, 6, 21]
 };
 
 const issueData = {
-  dates: ['4/11','4/13','4/14','4/15','4/16','4/17','4/18','4/19','4/20','4/22','4/23','4/24','4/26','4/27','4/28','4/29','5/3','5/5','5/6','5/7','5/8','5/9','5/14','5/15','5/16','5/18','5/19','5/20','5/21','5/22','5/23','5/24','5/25','5/26','5/27','5/28','5/29','5/30','5/31','6/1','6/2','6/3','6/4','6/5','6/6','6/7','6/8','6/9','6/10','6/11','6/12'],
-  dataIssue:  [1,1,1,1,1,3,1,0,2,1,0,1,0,1,1,1,2,0,1,1,1,1,4,9,5,4,7,1,4,7,4,4,7,10,5,8,6,4,2,4,3,3,7,5,7,8,15,8,11,4,7],
-  sysIssue:   [0,0,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0,1,0,0,3,0,0,1,3,0,0,0,3,2,2,2,1,2,4,1,1,3,0],
-  opIssue:    [1,1,2,1,2,2,3,1,4,1,1,0,1,2,2,2,0,1,0,0,0,0,0,1,0,3,1,1,2,4,3,2,4,3,1,2,2,1,0,1,1,3,1,2,1,3,0,1,1,3,3],
-  total:      [2,2,4,2,4,6,5,2,6,2,1,1,1,3,3,3,2,1,1,2,2,1,4,10,5,8,8,2,6,12,7,6,14,13,6,11,11,5,2,5,7,8,11,9,9,13,19,10,13,11,10]
+  dates: ["4/11", "4/13", "4/14", "4/15", "4/16", "4/17", "4/18", "4/19", "4/2", "4/22", "4/23", "4/24", "4/26", "4/27", "4/28", "4/29", "5/3", "5/5", "5/6", "5/7", "5/8", "5/9", "5/14", "5/15", "5/16", "5/18", "5/19", "5/2", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", "5/3", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/1", "6/11", "6/12", "6/13", "6/14", "6/15"],
+  dataIssue:  [1, 1, 1, 1, 1, 3, 1, 0, 2, 1, 0, 1, 0, 1, 1, 1, 2, 0, 1, 1, 1, 1, 4, 9, 5, 4, 7, 1, 4, 7, 4, 4, 7, 10, 5, 8, 6, 4, 2, 4, 3, 3, 7, 5, 7, 8, 15, 8, 11, 4, 7, 7, 2, 6],
+  sysIssue:   [0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3, 0, 0, 1, 3, 0, 0, 0, 3, 2, 2, 2, 1, 2, 4, 1, 1, 3, 0, 0, 0, 0],
+  opIssue:    [1, 1, 2, 1, 2, 2, 3, 1, 4, 1, 1, 0, 1, 2, 2, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 3, 1, 1, 2, 4, 3, 2, 4, 3, 1, 2, 2, 1, 0, 1, 1, 3, 1, 2, 1, 3, 0, 1, 1, 3, 3, 3, 0, 2],
+  total:      [2, 2, 4, 2, 4, 6, 5, 2, 6, 2, 1, 1, 1, 3, 3, 3, 2, 1, 1, 2, 2, 1, 4, 10, 5, 8, 8, 2, 6, 12, 7, 6, 14, 13, 6, 11, 11, 5, 2, 5, 7, 8, 11, 9, 9, 13, 19, 10, 13, 11, 10, 10, 2, 9]
 };
 
 const orderData = {
-  types: ['样品单', '小批量', '量产单', '返工工单'],
-  done:  [5, 8, 32, 0],
-  inProgress: [39, 18, 86, 0],
-  total: [44, 26, 118, 0]
+  types: ["样品单", "小批量", "量产单", "返工工单"],
+  done:  [6, 10, 36, 0],
+  inProgress: [49, 17, 85, 0],
+  total: [55, 27, 121, 0]
 };
 
 const feedbackData = {
-  types: ['操作问题', '培训问题', '数据问题', '系统问题', '优化问题'],
+  types: ["操作问题", "培训问题", "数据问题", "系统问题", "优化问题"],
   done:  [31, 7, 17, 18, 25],
   inProgress: [0, 0, 2, 0, 13],
-  verify: [0, 0, 0, 1, 2],
-  total: [31, 7, 19, 19, 40]
+  verify: [0, 0, 0, 1, 3],
+  total: [31, 7, 19, 19, 41]
 };
-
-// ========== SUMMARY CARDS ==========
-const totalDays = onlineData.values.length;
-const avgOnline = (onlineData.values.reduce((a,b)=>a+b,0)/totalDays).toFixed(1);
-document.getElementById('totalDays').textContent = totalDays;
-document.getElementById('avgOnline').textContent = avgOnline;
-
-const totalOrders = orderData.total.reduce((a,b)=>a+b,0);
-const totalDone = orderData.done.reduce((a,b)=>a+b,0);
-document.getElementById('totalOrders').textContent = totalOrders;
-document.getElementById('orderRate').textContent = totalOrders ? (totalDone/totalOrders*100).toFixed(1)+'%' : '--';
-
-const totalIssues = feedbackData.total.reduce((a,b)=>a+b,0);
-const doneIssues = feedbackData.done.reduce((a,b)=>a+b,0);
-document.getElementById('totalIssues').textContent = totalIssues;
-document.getElementById('doneIssues').textContent = doneIssues;
-
-const peakVal = Math.max(...issueData.total);
-const peakIdx = issueData.total.indexOf(peakVal);
-document.getElementById('peakIssue').textContent = peakVal;
-document.getElementById('peakDate').textContent = issueData.dates[peakIdx];
-
-// 在线人数总数
-const totalOnline = onlineData.values.reduce((a,b)=>a+b,0);
-document.getElementById('onlineTotal').textContent = '累计在线：' + totalOnline + ' 人次';
-
-// 群问题总数
-const totalIssueCount = issueData.total.reduce((a,b)=>a+b,0);
-document.getElementById('issueTotal').textContent = '累计问题：' + totalIssueCount + ' 个';
 
 // ========== CHARTS ==========
 const darkTheme = {
@@ -523,7 +448,7 @@ const darkTheme = {
       markLine: {
         silent: true,
         lineStyle: { color: '#e6a23c', type: 'dashed' },
-        data: [{ yAxis: parseFloat(avgOnline), name: '日均 '+avgOnline }]
+        data: [{ yAxis: 14.8, name: '日均 14.8' }]
       }
     }]
   });
