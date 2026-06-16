@@ -28,10 +28,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .header .date {
-    color: #8899aa;
-    font-size: 14px;
-  }
+  .header .date { color: #8899aa; font-size: 14px; }
   .summary-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -76,9 +73,7 @@
     border-radius: 12px;
     padding: 20px;
   }
-  .chart-box.full {
-    grid-column: 1 / -1;
-  }
+  .chart-box.full { grid-column: 1 / -1; }
   .chart-title {
     font-size: 15px;
     font-weight: 600;
@@ -94,7 +89,6 @@
     padding: 6px 12px;
     font-size: 12px;
     color: #8899aa;
-    position: relative;
   }
   .flow-step.active {
     background: rgba(64,158,255,0.15);
@@ -136,14 +130,8 @@
     left: 0;
     color: #4a5568;
   }
-  .chart-container {
-    width: 100%;
-    height: 380px;
-  }
-  /* 每日更新模块 */
-  .daily-update-section {
-    padding: 0 40px 24px;
-  }
+  .chart-container { width: 100%; height: 380px; }
+  .daily-update-section { padding: 0 40px 24px; }
   .daily-update-box {
     background: linear-gradient(135deg, #1a2a3a 0%, #162232 100%);
     border: 1px solid rgba(103,194,58,0.2);
@@ -171,9 +159,7 @@
     padding-left: 20px;
     border-bottom: 1px solid rgba(64,158,255,0.06);
   }
-  .daily-update-list li:last-child {
-    border-bottom: none;
-  }
+  .daily-update-list li:last-child { border-bottom: none; }
   .daily-update-list li::before {
     content: '📌';
     position: absolute;
@@ -203,23 +189,23 @@
 
 <div class="header">
   <h1>MES 运营数据报表</h1>
-  <span class="date">数据周期：2026-04-11 至 2026-06-15</span>
+  <span class="date">数据周期：2026-04-11 至 2026-06-16</span>
 </div>
 
 <div class="summary-cards">
   <div class="card">
     <div class="label">累计在线用户天数</div>
-    <div class="value">65</div>
-    <div class="sub">日均在线人数：<span>14.8</span></div>
+    <div class="value">66</div>
+    <div class="sub">日均在线人数：<span>14.9</span></div>
   </div>
   <div class="card">
     <div class="label">工单总数</div>
-    <div class="value">203</div>
-    <div class="sub">完成率：<span>25.6%</span></div>
+    <div class="value">207</div>
+    <div class="sub">完成率：<span>27.5%</span></div>
   </div>
   <div class="card">
     <div class="label">问题总数</div>
-    <div class="value">117</div>
+    <div class="value">118</div>
     <div class="sub">已解决：<span>98</span></div>
   </div>
   <div class="card">
@@ -232,7 +218,7 @@
 <!-- 用户在线人数 -->
 <div class="charts-row">
   <div class="chart-box full">
-    <div class="chart-title">📈 用户每日在线人数趋势 <span style="font-size:13px; color:#409eff; margin-left:12px;">累计在线：961 人次</span></div>
+    <div class="chart-title">📈 用户每日在线人数趋势 <span style="font-size:13px; color:#409eff; margin-left:12px;">累计在线：981 人次</span></div>
     <div class="chart-container" id="chartOnline"></div>
   </div>
 </div>
@@ -240,7 +226,7 @@
 <!-- 每日群问题 + 总结 -->
 <div class="charts-row">
   <div class="chart-box full">
-    <div class="chart-title">📊 每日群问题数量统计（按类型堆叠） <span style="font-size:13px; color:#67c23a; margin-left:12px;">累计问题：332 个</span></div>
+    <div class="chart-title">📊 每日群问题数量统计（按类型堆叠） <span style="font-size:13px; color:#67c23a; margin-left:12px;">累计问题：340 个</span></div>
     <div class="chart-container" id="chartIssues"></div>
     <div style="margin-top:16px; border-top:1px solid rgba(64,158,255,0.1); padding-top:14px;">
       <div style="font-size:14px; font-weight:600; color:#c0ccda; margin-bottom:10px; padding-left:8px; border-left:3px solid #f56c6c;">⚠️ 群问题总结</div>
@@ -340,7 +326,7 @@
             <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
               <span style="font-size:12px; color:#67c23a;">完成 1</span>
               <span style="font-size:12px; color:#e6a23c;">解决中 4</span>
-              <span style="font-size:12px; color:#f56c6c;">未开始 7</span>
+              <span style="font-size:12px; color:#f56c6c;">未开始 8</span>
             </div>
           </div>
         </div>
@@ -376,45 +362,42 @@
   <div class="daily-update-box">
     <div class="daily-update-title">📌 每日更新</div>
     <ul class="daily-update-list">
-      <li>1.设备组合功能上线,6.16培训</li>
-          <li>2.今日探讨关于物料调拨规则卡控调整，根据工单类型（样品单，实验验证单与量产单调料调拨规则调整</li>
-          <li>3.新增验收后需求（MES需要可以查询入库批次信息）</li>
+      <li>1.基础资料维护（多个新增工步，新增设备没有绑定）</li>
+          <li>2.设备组合资料收集（晶圆无法追溯到设备需要讨论）</li>
           
     </ul>
   </div>
 </div>
 
 <script>
-// ========== DATA ==========
 const onlineData = {
-  dates: ["4/11", "4/12", "4/13", "4/14", "4/15", "4/16", "4/17", "4/18", "4/19", "4/20", "4/21", "4/22", "4/23", "4/24", "4/25", "4/26", "4/27", "4/28", "4/29", "4/30", "5/1", "5/3", "5/4", "5/5", "5/6", "5/7", "5/8", "5/9", "5/10", "5/11", "5/12", "5/13", "5/14", "5/15", "5/16", "5/17", "5/18", "5/19", "5/20", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", "5/30", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/10", "6/11", "6/12", "6/13", "6/14", "6/15"],
-  values: [6, 4, 10, 13, 10, 13, 18, 10, 10, 15, 23, 15, 16, 14, 8, 12, 15, 17, 17, 16, 5, 9, 10, 7, 17, 12, 15, 16, 10, 15, 14, 12, 16, 19, 15, 4, 15, 21, 20, 25, 24, 13, 13, 23, 19, 22, 16, 15, 15, 6, 14, 16, 19, 22, 18, 13, 15, 16, 22, 19, 26, 14, 15, 6, 21]
+  dates: ["4/11", "4/12", "4/13", "4/14", "4/15", "4/16", "4/17", "4/18", "4/19", "4/20", "4/21", "4/22", "4/23", "4/24", "4/25", "4/26", "4/27", "4/28", "4/29", "4/30", "5/1", "5/3", "5/4", "5/5", "5/6", "5/7", "5/8", "5/9", "5/10", "5/11", "5/12", "5/13", "5/14", "5/15", "5/16", "5/17", "5/18", "5/19", "5/20", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", "5/30", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/10", "6/11", "6/12", "6/13", "6/14", "6/15", "6/16"],
+  values: [6, 4, 10, 13, 10, 13, 18, 10, 10, 15, 23, 15, 16, 14, 8, 12, 15, 17, 17, 16, 5, 9, 10, 7, 17, 12, 15, 16, 10, 15, 14, 12, 16, 19, 15, 4, 15, 21, 20, 25, 24, 13, 13, 23, 19, 22, 16, 15, 15, 6, 14, 16, 19, 22, 18, 13, 15, 16, 22, 19, 26, 14, 15, 6, 21, 20]
 };
 
 const issueData = {
-  dates: ["4/11", "4/13", "4/14", "4/15", "4/16", "4/17", "4/18", "4/19", "4/2", "4/22", "4/23", "4/24", "4/26", "4/27", "4/28", "4/29", "5/3", "5/5", "5/6", "5/7", "5/8", "5/9", "5/14", "5/15", "5/16", "5/18", "5/19", "5/2", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", "5/3", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/1", "6/11", "6/12", "6/13", "6/14", "6/15"],
-  dataIssue:  [1, 1, 1, 1, 1, 3, 1, 0, 2, 1, 0, 1, 0, 1, 1, 1, 2, 0, 1, 1, 1, 1, 4, 9, 5, 4, 7, 1, 4, 7, 4, 4, 7, 10, 5, 8, 6, 4, 2, 4, 3, 3, 7, 5, 7, 8, 15, 8, 11, 4, 7, 7, 2, 6],
-  sysIssue:   [0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3, 0, 0, 1, 3, 0, 0, 0, 3, 2, 2, 2, 1, 2, 4, 1, 1, 3, 0, 0, 0, 0],
-  opIssue:    [1, 1, 2, 1, 2, 2, 3, 1, 4, 1, 1, 0, 1, 2, 2, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 3, 1, 1, 2, 4, 3, 2, 4, 3, 1, 2, 2, 1, 0, 1, 1, 3, 1, 2, 1, 3, 0, 1, 1, 3, 3, 3, 0, 2],
-  total:      [2, 2, 4, 2, 4, 6, 5, 2, 6, 2, 1, 1, 1, 3, 3, 3, 2, 1, 1, 2, 2, 1, 4, 10, 5, 8, 8, 2, 6, 12, 7, 6, 14, 13, 6, 11, 11, 5, 2, 5, 7, 8, 11, 9, 9, 13, 19, 10, 13, 11, 10, 10, 2, 9]
+  dates: ["4/11", "4/13", "4/14", "4/15", "4/16", "4/17", "4/18", "4/19", "4/2", "4/22", "4/23", "4/24", "4/26", "4/27", "4/28", "4/29", "5/3", "5/5", "5/6", "5/7", "5/8", "5/9", "5/14", "5/15", "5/16", "5/18", "5/19", "5/2", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", "5/3", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/1", "6/11", "6/12", "6/13", "6/14", "6/15", "6/16"],
+  dataIssue:  [1, 1, 1, 1, 1, 3, 1, 0, 2, 1, 0, 1, 0, 1, 1, 1, 2, 0, 1, 1, 1, 1, 4, 9, 5, 4, 7, 1, 4, 7, 4, 4, 7, 10, 5, 8, 6, 4, 2, 4, 3, 3, 7, 5, 7, 8, 15, 8, 11, 4, 7, 7, 2, 6, 6],
+  sysIssue:   [0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3, 0, 0, 1, 3, 0, 0, 0, 3, 2, 2, 2, 1, 2, 4, 1, 1, 3, 0, 0, 0, 0, 0],
+  opIssue:    [1, 1, 2, 1, 2, 2, 3, 1, 4, 1, 1, 0, 1, 2, 2, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 3, 1, 1, 2, 4, 3, 2, 4, 3, 1, 2, 2, 1, 0, 1, 1, 3, 1, 2, 1, 3, 0, 1, 1, 3, 3, 3, 0, 2, 2],
+  total:      [2, 2, 4, 2, 4, 6, 5, 2, 6, 2, 1, 1, 1, 3, 3, 3, 2, 1, 1, 2, 2, 1, 4, 10, 5, 8, 8, 2, 6, 12, 7, 6, 14, 13, 6, 11, 11, 5, 2, 5, 7, 8, 11, 9, 9, 13, 19, 10, 13, 11, 10, 10, 2, 9, 8]
 };
 
 const orderData = {
   types: ["样品单", "小批量", "量产单", "返工工单"],
-  done:  [6, 10, 36, 0],
-  inProgress: [49, 17, 85, 0],
-  total: [55, 27, 121, 0]
+  done:  [5, 10, 42, 0],
+  inProgress: [51, 19, 80, 0],
+  total: [56, 29, 122, 0]
 };
 
 const feedbackData = {
   types: ["操作问题", "培训问题", "数据问题", "系统问题", "优化问题"],
   done:  [31, 7, 17, 18, 25],
-  inProgress: [0, 0, 2, 0, 13],
+  inProgress: [0, 0, 2, 0, 14],
   verify: [0, 0, 0, 1, 3],
-  total: [31, 7, 19, 19, 41]
+  total: [31, 7, 19, 19, 42]
 };
 
-// ========== CHARTS ==========
 const darkTheme = {
   textStyle: { color: '#8899aa' },
   title: { textStyle: { color: '#c0ccda' } },
@@ -448,7 +431,7 @@ const darkTheme = {
       markLine: {
         silent: true,
         lineStyle: { color: '#e6a23c', type: 'dashed' },
-        data: [{ yAxis: 14.8, name: '日均 14.8' }]
+        data: [{ yAxis: 14.9, name: '日均 14.9' }]
       }
     }]
   });
