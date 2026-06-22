@@ -2,10 +2,13 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<!-- v617b -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MES 运营数据报表</title>
 <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+if(typeof echarts==='undefined'){var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js';document.head.appendChild(s);}
+if(typeof echarts==='undefined'){var s2=document.createElement('script');s2.src='https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js';document.head.appendChild(s2);}
+</script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; background: #0f1923; color: #e0e6ed; min-height: 100vh; }
@@ -39,37 +42,38 @@
   .issue-list li { font-size: 13px; color: #a0aec0; padding: 5px 0; line-height: 1.6; position: relative; padding-left: 16px; }
   .issue-list li::before { content: '•'; position: absolute; left: 0; color: #4a5568; }
   .chart-container { width: 100%; height: 380px; }
-  .daily-update-section { padding: 0 40px 24px; }
-  .daily-update-box { background: linear-gradient(135deg, #1a2a3a 0%, #162232 100%); border: 1px solid rgba(103,194,58,0.2); border-radius: 12px; padding: 20px 24px; }
-  .daily-update-title { font-size: 15px; font-weight: 600; color: #c0ccda; margin-bottom: 14px; padding-left: 10px; border-left: 3px solid #67c23a; }
-  .daily-update-list { list-style: none; padding-left: 10px; }
-  .daily-update-list li { font-size: 14px; color: #c0ccda; padding: 8px 0; line-height: 1.7; position: relative; padding-left: 20px; border-bottom: 1px solid rgba(64,158,255,0.06); }
-  .daily-update-list li:last-child { border-bottom: none; }
-  .daily-update-list li::before { content: '📌'; position: absolute; left: 0; font-size: 12px; }
+  .storage-section { padding: 0 40px 24px; }
+  .storage-box { background: linear-gradient(135deg, #1a2a3a 0%, #162232 100%); border: 1px solid rgba(64,158,255,0.15); border-radius: 12px; padding: 20px 24px; }
+  .storage-title { font-size: 15px; font-weight: 600; color: #c0ccda; margin-bottom: 14px; padding-left: 10px; border-left: 3px solid #67c23a; }
+  .storage-table { width: 100%; border-collapse: collapse; }
+  .storage-table th { padding: 10px 12px; text-align: center; color: #8899aa; font-size: 12px; font-weight: 600; border-bottom: 2px solid rgba(64,158,255,0.2); }
+  .storage-summary { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(64,158,255,0.1); display: flex; gap: 24px; flex-wrap: wrap; }
+  .storage-summary-item { display: flex; align-items: center; gap: 6px; }
+  .storage-summary-item .num { font-size: 20px; font-weight: 700; }
   .new-badge { display: inline-block; background: rgba(103,194,58,0.2); border: 1px solid rgba(103,194,58,0.4); color: #67c23a; font-size: 11px; padding: 1px 6px; border-radius: 4px; margin-left: 6px; font-weight: 600; }
-  @media (max-width: 900px) { .summary-cards { grid-template-columns: repeat(2, 1fr); padding: 16px; } .charts-row { grid-template-columns: 1fr; padding: 0 16px 16px; } .daily-update-section { padding: 0 16px 16px; } .header { padding: 16px; } }
+  @media (max-width: 900px) { .summary-cards { grid-template-columns: repeat(2, 1fr); padding: 16px; } .charts-row { grid-template-columns: 1fr; padding: 0 16px 16px; } .storage-section { padding: 0 16px 16px; } .header { padding: 16px; } }
 </style>
 </head>
 <body>
 <div class="header">
   <h1>MES 运营数据报表</h1>
-  <span class="date">数据周期：2026-04-11 至 2026-06-17</span>
+  <span class="date">数据周期：2026-04-11 至 2026-06-22</span>
 </div>
 <div class="summary-cards">
-  <div class="card"><div class="label">累计在线用户天数</div><div class="value">67</div><div class="sub">日均在线人数：<span>14.9</span></div></div>
-  <div class="card"><div class="label">工单总数</div><div class="value">210</div><div class="sub">完成率：<span>29.5%</span></div></div>
+  <div class="card"><div class="label">累计在线用户天数</div><div class="value">72</div><div class="sub">日均在线人数：<span>14.7</span> · 累计 1055 人次</div></div>
+  <div class="card"><div class="label">工单总数</div><div class="value">217</div><div class="sub">完成率：<span>30.0%</span> · 已完成 65</div></div>
   <div class="card"><div class="label">问题总数</div><div class="value">118</div><div class="sub">已解决：<span>98</span></div></div>
-  <div class="card"><div class="label">群问题峰值</div><div class="value">19</div><div class="sub">峰值日期：<span>6/8</span></div></div>
+  <div class="card"><div class="label">群问题峰值</div><div class="value">19</div><div class="sub">峰值日期：<span>6/8</span> · 累计 352</div></div>
 </div>
 <div class="charts-row">
   <div class="chart-box full">
-    <div class="chart-title">📈 用户每日在线人数趋势 <span style="font-size:13px; color:#409eff; margin-left:12px;">累计在线：1000 人次</span></div>
+    <div class="chart-title">📈 用户每日在线人数趋势 <span style="font-size:13px; color:#409eff; margin-left:12px;">累计在线：1055 人次</span></div>
     <div class="chart-container" id="chartOnline"></div>
   </div>
 </div>
 <div class="charts-row">
   <div class="chart-box full">
-    <div class="chart-title">📊 每日群问题数量统计（按类型堆叠） <span style="font-size:13px; color:#67c23a; margin-left:12px;">累计问题：345 个</span></div>
+    <div class="chart-title">📊 每日群问题数量统计（按类型堆叠） <span style="font-size:13px; color:#67c23a; margin-left:12px;">累计问题：352 个</span></div>
     <div class="chart-container" id="chartIssues"></div>
     <div style="margin-top:16px; border-top:1px solid rgba(64,158,255,0.1); padding-top:14px;">
       <div style="font-size:14px; font-weight:600; color:#c0ccda; margin-bottom:10px; padding-left:8px; border-left:3px solid #f56c6c;">⚠️ 群问题总结</div>
@@ -100,11 +104,10 @@
         <div style="font-size:13px; font-weight:600; color:#409eff; margin-bottom:6px;">ERP → MES：返工流程</div>
         <div style="display:flex; flex-wrap:wrap; gap:6px; align-items:center;">
           <span class="flow-step active">ERP下单</span><span class="flow-arrow">→</span>
-          <span class="flow-step active">不良批次绑定工单</span><span class="flow-arrow">→</span>
-          <span class="flow-step active">MES接受工艺路线确认</span><span class="flow-arrow">→</span>
-          <span class="flow-step active">物料调拨</span><span class="flow-arrow">→</span>
-          <span class="flow-step active">生产执行</span><span class="flow-arrow">→</span>
-          <span class="flow-step active">包装入库</span>
+          <span class="flow-step active">不良品判定</span><span class="flow-arrow">→</span>
+          <span class="flow-step active">返工工单创建</span><span class="flow-arrow">→</span>
+          <span class="flow-step active">返工执行</span><span class="flow-arrow">→</span>
+          <span class="flow-step active">验收入库</span>
         </div>
       </div>
       <div style="margin-bottom:12px;">
@@ -175,30 +178,133 @@
     </div>
   </div>
 </div>
-<div class="daily-update-section">
-  <div class="daily-update-box">
-    <div class="daily-update-title">📌 每日更新</div>
-    <ul class="daily-update-list">
-      <li>1.网络调整，ip地址变更，标签无法打印（标签ip配置）</li>
-          <li>2.备人员上料口产线培训（实操）</li>
-          <li>3.近期多次工艺路线变更导致数据问题总结（与工艺沟通，规范操作）</li>
-    </ul>
+<div class="storage-section">
+  <div class="storage-box">
+    <div class="storage-title">📦 每日入库情况</div>
+    <table class="storage-table">
+      <thead>
+        <tr>
+          <th style="width:10%;">日期</th>
+          <th style="width:12%;">成功入库批次</th>
+          <th style="width:10%;">失败批次</th>
+          <th style="width:20%;">失败批次号</th>
+          <th style="width:12%;">成功率</th>
+          <th style="width:36%;">失败原因</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:8px 12px;text-align:center;color:#c0ccda;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">6/15</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">16</td>
+          <td style="padding:8px 12px;text-align:center;color:#f56c6c;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">2</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">SKVUMU0901、SKVUMU0902</td>
+          <td style="padding:8px 12px;text-align:center;color:#e6a23c;font-size:13px;font-weight:600;border-bottom:1px solid rgba(64,158,255,0.06);">88.9%</td>
+          <td style="padding:8px 12px;color:#a0aec0;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">BOM版本不一致</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;text-align:center;color:#c0ccda;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">6/16</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">14</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:13px;font-weight:600;border-bottom:1px solid rgba(64,158,255,0.06);">100.0%</td>
+          <td style="padding:8px 12px;color:#a0aec0;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;text-align:center;color:#c0ccda;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">6/17</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">6</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:13px;font-weight:600;border-bottom:1px solid rgba(64,158,255,0.06);">100.0%</td>
+          <td style="padding:8px 12px;color:#a0aec0;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;text-align:center;color:#c0ccda;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">6/18</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">10</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:13px;font-weight:600;border-bottom:1px solid rgba(64,158,255,0.06);">100.0%</td>
+          <td style="padding:8px 12px;color:#a0aec0;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;text-align:center;color:#c0ccda;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">6/19</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">0</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:13px;font-weight:600;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;color:#a0aec0;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;text-align:center;color:#c0ccda;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">6/20</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">4</td>
+          <td style="padding:8px 12px;text-align:center;color:#f56c6c;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">1</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">PMMUMU0915</td>
+          <td style="padding:8px 12px;text-align:center;color:#f56c6c;font-size:13px;font-weight:600;border-bottom:1px solid rgba(64,158,255,0.06);">80.0%</td>
+          <td style="padding:8px 12px;color:#a0aec0;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">报工合格数量与入库数量不一致</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;text-align:center;color:#c0ccda;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">6/21</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">4</td>
+          <td style="padding:8px 12px;text-align:center;color:#67c23a;font-size:13px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+          <td style="padding:8px 12px;text-align:center;color:#8899aa;font-size:13px;font-weight:600;border-bottom:1px solid rgba(64,158,255,0.06);">100.0%</td>
+          <td style="padding:8px 12px;color:#a0aec0;font-size:12px;border-bottom:1px solid rgba(64,158,255,0.06);">-</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="storage-summary">
+      <div class="storage-summary-item"><span style="color:#8899aa;font-size:13px;">总入库批次：</span><span class="num" style="color:#409eff;">57</span></div>
+      <div class="storage-summary-item"><span style="color:#8899aa;font-size:13px;">成功：</span><span class="num" style="color:#67c23a;">54</span></div>
+      <div class="storage-summary-item"><span style="color:#8899aa;font-size:13px;">失败：</span><span class="num" style="color:#f56c6c;">3</span></div>
+      <div class="storage-summary-item"><span style="color:#8899aa;font-size:13px;">整体成功率：</span><span class="num" style="color:#67c23a;">94.7%</span></div>
+    </div>
   </div>
 </div>
 <script>
-const onlineData = { dates: ["4/11", "4/12", "4/13", "4/14", "4/15", "4/16", "4/17", "4/18", "4/19", "4/20", "4/21", "4/22", "4/23", "4/24", "4/25", "4/26", "4/27", "4/28", "4/29", "4/30", "5/1", "5/3", "5/4", "5/5", "5/6", "5/7", "5/8", "5/9", "5/10", "5/11", "5/12", "5/13", "5/14", "5/15", "5/16", "5/17", "5/18", "5/19", "5/20", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", "5/30", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/10", "6/11", "6/12", "6/13", "6/14", "6/15", "6/16", "6/17"], values: [6, 4, 10, 13, 10, 13, 18, 10, 10, 15, 23, 15, 16, 14, 8, 12, 15, 17, 17, 16, 5, 9, 10, 7, 17, 12, 15, 16, 10, 15, 14, 12, 16, 19, 15, 4, 15, 21, 20, 25, 24, 13, 13, 23, 19, 22, 16, 15, 15, 6, 14, 16, 19, 22, 18, 13, 15, 16, 22, 19, 26, 14, 15, 6, 21, 20, 19] };
-const issueData = { dates: ["4/11", "4/13", "4/14", "4/15", "4/16", "4/17", "4/18", "4/19", "4/2", "4/22", "4/23", "4/24", "4/26", "4/27", "4/28", "4/29", "5/3", "5/5", "5/6", "5/7", "5/8", "5/9", "5/14", "5/15", "5/16", "5/18", "5/19", "5/2", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", "5/3", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/1", "6/11", "6/12", "6/13", "6/14", "6/15", "6/16", "6/17"], dataIssue: [1, 1, 1, 1, 1, 3, 1, 0, 2, 1, 0, 1, 0, 1, 1, 1, 2, 0, 1, 1, 1, 1, 4, 9, 5, 4, 7, 1, 4, 7, 4, 4, 7, 10, 5, 8, 6, 4, 2, 4, 3, 3, 7, 5, 7, 8, 15, 8, 11, 4, 7, 7, 2, 6, 6, 4], sysIssue: [0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3, 0, 0, 1, 3, 0, 0, 0, 3, 2, 2, 2, 1, 2, 4, 1, 1, 3, 0, 0, 0, 0, 0, 1], opIssue: [1, 1, 2, 1, 2, 2, 3, 1, 4, 1, 1, 0, 1, 2, 2, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 3, 1, 1, 2, 4, 3, 2, 4, 3, 1, 2, 2, 1, 0, 1, 1, 3, 1, 2, 1, 3, 0, 1, 1, 3, 3, 3, 0, 2, 2, 0], total: [2, 2, 4, 2, 4, 6, 5, 2, 6, 2, 1, 1, 1, 3, 3, 3, 2, 1, 1, 2, 2, 1, 4, 10, 5, 8, 8, 2, 6, 12, 7, 6, 14, 13, 6, 11, 11, 5, 2, 5, 7, 8, 11, 9, 9, 13, 19, 10, 13, 11, 10, 10, 2, 9, 8, 5] };
-const orderData = { types: ["样品单", "小批量", "量产单", "返工工单"], done: [11, 10, 41, 0], inProgress: [45, 20, 83, 0], total: [56, 30, 124, 0] };
-const feedbackData = { types: ["操作问题", "培训问题", "数据问题", "系统问题", "优化问题"], done: [31, 7, 17, 18, 25], inProgress: [0, 0, 2, 0, 14], verify: [0, 0, 0, 1, 3], total: [31, 7, 19, 19, 42] };
-const darkTheme = { textStyle: { color: '#8899aa' }, title: { textStyle: { color: '#c0ccda' } }, legend: { textStyle: { color: '#8899aa' } } };
+var onlineData = { dates: ["4/11", "4/12", "4/13", "4/14", "4/15", "4/16", "4/17", "4/18", "4/19", "4/20", "4/21", "4/22", "4/23", "4/24", "4/25", "4/26", "4/27", "4/28", "4/29", "4/30", "5/1", "5/3", "5/4", "5/5", "5/6", "5/7", "5/8", "5/9", "5/10", "5/11", "5/12", "5/13", "5/14", "5/15", "5/16", "5/17", "5/18", "5/19", "5/20", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", "5/30", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/10", "6/11", "6/12", "6/13", "6/14", "6/15", "6/16", "6/17", "6/18", "6/19", "6/20", "6/21", "6/22"], values: [6, 4, 10, 13, 10, 13, 18, 10, 10, 15, 23, 15, 16, 14, 8, 12, 15, 17, 17, 16, 5, 9, 10, 7, 17, 12, 15, 16, 10, 15, 14, 12, 16, 19, 15, 4, 15, 21, 20, 25, 24, 13, 13, 23, 19, 22, 16, 15, 15, 6, 14, 16, 19, 22, 18, 13, 15, 16, 22, 19, 26, 14, 15, 6, 21, 20, 19, 16, 5, 14, 10, 10] };
+var issueData = { dates: ["4/11", "4/13", "4/14", "4/15", "4/16", "4/17", "4/18", "4/19", "4/2", "4/22", "4/23", "4/24", "4/26", "4/27", "4/28", "4/29", "5.3", "5/5", "5/6", "5/7", "5/8", "5/9", "5/14", "5/15", "5/16", "5/18", "5/19", "5/2", "5/21", "5/22", "5/23", "5/24", "5/25", "5/26", "5/27", "5/28", "5/29", "5/3", "5/31", "6/1", "6/2", "6/3", "6/4", "6/5", "6/6", "6/7", "6/8", "6/9", "6/1", "6/11", "6/12", "6/13", "6/14", "6/15", "6/16", "6/17", "6/18", "6/2", "6/21"], dataIssue: [1, 1, 1, 1, 1, 3, 1, 0, 2, 1, 0, 1, 0, 1, 1, 1, 2, 0, 1, 1, 1, 1, 4, 9, 5, 4, 7, 1, 4, 7, 4, 4, 7, 10, 5, 8, 6, 4, 2, 4, 3, 3, 7, 5, 7, 8, 15, 8, 11, 4, 7, 7, 2, 6, 6, 4, 5, 0, 3], sysIssue: [0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3, 0, 0, 1, 3, 0, 0, 0, 3, 2, 2, 2, 1, 2, 4, 1, 1, 3, 0, 0, 0, 0, 0, 1, 0, 0, 0], opIssue: [1, 1, 2, 1, 2, 2, 3, 1, 4, 1, 1, 0, 1, 2, 2, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 3, 1, 1, 2, 4, 3, 2, 4, 3, 1, 2, 2, 1, 0, 1, 1, 3, 1, 2, 1, 3, 0, 1, 1, 3, 3, 3, 0, 2, 2, 0, 0, 2, 0], total: [2, 2, 4, 2, 4, 6, 5, 2, 6, 2, 1, 1, 1, 3, 3, 3, 2, 1, 1, 2, 2, 1, 4, 10, 5, 8, 8, 2, 6, 12, 7, 6, 14, 13, 6, 11, 11, 5, 2, 5, 7, 8, 11, 9, 9, 13, 19, 10, 13, 11, 10, 10, 2, 9, 8, 5, 5, 2, 0] };
+var orderData = { types: ["样品单", "小批量", "量产单", "返工工单"], done: [7, 12, 46, 0], inProgress: [52, 18, 82, 0], total: [59, 30, 128, 0] };
+var feedbackData = { types: ["操作问题", "培训问题", "数据问题", "系统问题", "优化问题"], done: [31, 7, 17, 18, 25], inProgress: [0, 0, 2, 0, 14], verify: [0, 0, 0, 1, 3], total: [31, 7, 19, 19, 42] };
+var darkTheme = { textStyle: { color: '#8899aa' }, title: { textStyle: { color: '#c0ccda' } }, legend: { textStyle: { color: '#8899aa' } } };
 
-(function(){ const c=echarts.init(document.getElementById('chartOnline')); c.setOption({...darkTheme, tooltip:{trigger:'axis',backgroundColor:'rgba(15,25,35,0.9)',borderColor:'#409eff',textStyle:{color:'#e0e6ed'}}, grid:{left:50,right:30,top:30,bottom:40}, xAxis:{type:'category',data:onlineData.dates,axisLine:{lineStyle:{color:'#2a3a4a'}},axisLabel:{color:'#607080',fontSize:11,rotate:30}}, yAxis:{type:'value',name:'在线人数',nameTextStyle:{color:'#8899aa'},axisLine:{show:false},splitLine:{lineStyle:{color:'#1a2a3a'}},axisLabel:{color:'#607080'}}, series:[{type:'line',data:onlineData.values,smooth:true,symbol:'circle',symbolSize:6,lineStyle:{color:'#409eff',width:2.5},itemStyle:{color:'#409eff'},label:{show:true,position:'top',color:'#8899aa',fontSize:10,formatter:'{c}'},areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(64,158,255,0.35)'},{offset:1,color:'rgba(64,158,255,0.02)'}])},markLine:{silent:true,lineStyle:{color:'#e6a23c',type:'dashed'},data:[{yAxis:14.9,name:'日均 14.9'}]}}] }); window.addEventListener('resize',()=>c.resize()); })();
+function initCharts() {
+  if(typeof echarts==='undefined') { setTimeout(initCharts, 200); return; }
 
-(function(){ const c=echarts.init(document.getElementById('chartIssues')); c.setOption({...darkTheme, tooltip:{trigger:'axis',backgroundColor:'rgba(15,25,35,0.9)',borderColor:'#409eff',textStyle:{color:'#e0e6ed'}}, legend:{data:['数据问题','系统问题','操作问题','总数趋势'],textStyle:{color:'#8899aa'},top:0}, grid:{left:50,right:30,top:40,bottom:40}, xAxis:{type:'category',data:issueData.dates,axisLine:{lineStyle:{color:'#2a3a4a'}},axisLabel:{color:'#607080',fontSize:11,rotate:30}}, yAxis:{type:'value',name:'问题数',nameTextStyle:{color:'#8899aa'},axisLine:{show:false},splitLine:{lineStyle:{color:'#1a2a3a'}},axisLabel:{color:'#607080'}}, series:[{name:'数据问题',type:'bar',stack:'issue',data:issueData.dataIssue,itemStyle:{color:'#409eff'},barWidth:'60%'},{name:'系统问题',type:'bar',stack:'issue',data:issueData.sysIssue,itemStyle:{color:'#f56c6c'}},{name:'操作问题',type:'bar',stack:'issue',data:issueData.opIssue,itemStyle:{color:'#e6a23c'}},{name:'柱顶总数',type:'bar',stack:'issue',data:issueData.total.map(()=>0.01),itemStyle:{color:'transparent'},label:{show:true,position:'top',color:'#67c23a',fontSize:11,fontWeight:600,formatter:function(p){return issueData.total[p.dataIndex];}}},{name:'总数趋势',type:'line',data:issueData.total,smooth:true,lineStyle:{color:'#67c23a',width:2},itemStyle:{color:'#67c23a'},symbol:'circle',symbolSize:5}] }); window.addEventListener('resize',()=>c.resize()); })();
+  (function(){ var c=echarts.init(document.getElementById('chartOnline')); c.setOption(Object.assign({}, darkTheme, {
+    tooltip:{trigger:'axis',backgroundColor:'rgba(15,25,35,0.9)',borderColor:'#409eff',textStyle:{color:'#e0e6ed'}},
+    grid:{left:50,right:30,top:30,bottom:40},
+    xAxis:{type:'category',data:onlineData.dates,axisLine:{lineStyle:{color:'#2a3a4a'}},axisLabel:{color:'#607080',fontSize:11,rotate:30}},
+    yAxis:{type:'value',name:'在线人数',nameTextStyle:{color:'#8899aa'},axisLine:{show:false},splitLine:{lineStyle:{color:'#1a2a3a'}},axisLabel:{color:'#607080'}},
+    series:[{type:'line',data:onlineData.values,smooth:true,symbol:'circle',symbolSize:6,lineStyle:{color:'#409eff',width:2.5},itemStyle:{color:'#409eff'},label:{show:true,position:'top',color:'#8899aa',fontSize:10,formatter:'{c}'},areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:'rgba(64,158,255,0.35)'},{offset:1,color:'rgba(64,158,255,0.02)'}])},markLine:{silent:true,lineStyle:{color:'#e6a23c',type:'dashed'},data:[{yAxis:14.7,name:'日均 14.7'}]}}]
+  })); window.addEventListener('resize',function(){c.resize();}); })();
 
-(function(){ const c=echarts.init(document.getElementById('chartOrders')); c.setOption({...darkTheme, tooltip:{trigger:'axis',backgroundColor:'rgba(15,25,35,0.9)',borderColor:'#409eff',textStyle:{color:'#e0e6ed'}}, legend:{data:['完成','在途','总数'],textStyle:{color:'#8899aa'},top:0}, grid:{left:50,right:40,top:40,bottom:30}, xAxis:{type:'category',data:orderData.types,axisLine:{lineStyle:{color:'#2a3a4a'}},axisLabel:{color:'#607080'}}, yAxis:{type:'value',axisLine:{show:false},splitLine:{lineStyle:{color:'#1a2a3a'}},axisLabel:{color:'#607080'}}, series:[{name:'完成',type:'bar',stack:'order',data:orderData.done,itemStyle:{color:'#67c23a'},barWidth:'50%'},{name:'在途',type:'bar',stack:'order',data:orderData.inProgress,itemStyle:{color:'#e6a23c'}},{name:'总数',type:'bar',data:orderData.total,itemStyle:{color:'rgba(64,158,255,0.15)'},barWidth:'50%',barGap:'-100%',z:-1,label:{show:true,position:'top',color:'#409eff',fontSize:12,formatter:function(p){return p.value}}}] }); window.addEventListener('resize',()=>c.resize()); })();
+  (function(){ var c=echarts.init(document.getElementById('chartIssues')); c.setOption(Object.assign({}, darkTheme, {
+    tooltip:{trigger:'axis',backgroundColor:'rgba(15,25,35,0.9)',borderColor:'#409eff',textStyle:{color:'#e0e6ed'}},
+    legend:{data:['数据问题','系统问题','操作问题','总数趋势'],textStyle:{color:'#8899aa'},top:0},
+    grid:{left:50,right:30,top:40,bottom:40},
+    xAxis:{type:'category',data:issueData.dates,axisLine:{lineStyle:{color:'#2a3a4a'}},axisLabel:{color:'#607080',fontSize:11,rotate:30}},
+    yAxis:{type:'value',name:'问题数',nameTextStyle:{color:'#8899aa'},axisLine:{show:false},splitLine:{lineStyle:{color:'#1a2a3a'}},axisLabel:{color:'#607080'}},
+    series:[{name:'数据问题',type:'bar',stack:'issue',data:issueData.dataIssue,itemStyle:{color:'#409eff'},barWidth:'60%'},{name:'系统问题',type:'bar',stack:'issue',data:issueData.sysIssue,itemStyle:{color:'#f56c6c'}},{name:'操作问题',type:'bar',stack:'issue',data:issueData.opIssue,itemStyle:{color:'#e6a23c'}},{name:'柱顶总数',type:'bar',stack:'issue',data:issueData.total.map(function(){return 0.01}),itemStyle:{color:'transparent'},label:{show:true,position:'top',color:'#67c23a',fontSize:11,fontWeight:600,formatter:function(p){return issueData.total[p.dataIndex];}}},{name:'总数趋势',type:'line',data:issueData.total,smooth:true,lineStyle:{color:'#67c23a',width:2},itemStyle:{color:'#67c23a'},symbol:'circle',symbolSize:5}]
+  })); window.addEventListener('resize',function(){c.resize();}); })();
 
-(function(){ const c=echarts.init(document.getElementById('chartFeedback')); c.setOption({...darkTheme, tooltip:{trigger:'axis',backgroundColor:'rgba(15,25,35,0.9)',borderColor:'#409eff',textStyle:{color:'#e0e6ed'}}, legend:{data:['已解决','解决中','待验证','总数'],textStyle:{color:'#8899aa'},top:0}, grid:{left:70,right:30,top:40,bottom:30}, xAxis:{type:'value',axisLine:{show:false},splitLine:{lineStyle:{color:'#1a2a3a'}},axisLabel:{color:'#607080'}}, yAxis:{type:'category',data:feedbackData.types,axisLine:{lineStyle:{color:'#2a3a4a'}},axisLabel:{color:'#607080'}}, series:[{name:'已解决',type:'bar',stack:'fb',data:feedbackData.done,itemStyle:{color:'#67c23a'},barWidth:'50%'},{name:'解决中',type:'bar',stack:'fb',data:feedbackData.inProgress,itemStyle:{color:'#e6a23c'}},{name:'待验证',type:'bar',stack:'fb',data:feedbackData.verify,itemStyle:{color:'#f56c6c'}},{name:'总数',type:'bar',data:feedbackData.total,itemStyle:{color:'rgba(64,158,255,0.15)'},barWidth:'50%',barGap:'-100%',z:-1,label:{show:true,position:'right',color:'#409eff',fontSize:12,formatter:function(p){return p.value}}}] }); window.addEventListener('resize',()=>c.resize()); })();
+  (function(){ var c=echarts.init(document.getElementById('chartOrders')); c.setOption(Object.assign({}, darkTheme, {
+    tooltip:{trigger:'axis',backgroundColor:'rgba(15,25,35,0.9)',borderColor:'#409eff',textStyle:{color:'#e0e6ed'}},
+    legend:{data:['完成','在途','总数'],textStyle:{color:'#8899aa'},top:0},
+    grid:{left:50,right:40,top:40,bottom:30},
+    xAxis:{type:'category',data:orderData.types,axisLine:{lineStyle:{color:'#2a3a4a'}},axisLabel:{color:'#607080'}},
+    yAxis:{type:'value',axisLine:{show:false},splitLine:{lineStyle:{color:'#1a2a3a'}},axisLabel:{color:'#607080'}},
+    series:[{name:'完成',type:'bar',stack:'order',data:orderData.done,itemStyle:{color:'#67c23a'},barWidth:'50%'},{name:'在途',type:'bar',stack:'order',data:orderData.inProgress,itemStyle:{color:'#e6a23c'}},{name:'总数',type:'bar',data:orderData.total,itemStyle:{color:'rgba(64,158,255,0.15)'},barWidth:'50%',barGap:'-100%',z:-1,label:{show:true,position:'top',color:'#409eff',fontSize:12,formatter:function(p){return p.value}}}]
+  })); window.addEventListener('resize',function(){c.resize();}); })();
+
+  (function(){ var c=echarts.init(document.getElementById('chartFeedback')); c.setOption(Object.assign({}, darkTheme, {
+    tooltip:{trigger:'axis',backgroundColor:'rgba(15,25,35,0.9)',borderColor:'#409eff',textStyle:{color:'#e0e6ed'}},
+    legend:{data:['已解决','解决中','待验证','总数'],textStyle:{color:'#8899aa'},top:0},
+    grid:{left:70,right:30,top:40,bottom:30},
+    xAxis:{type:'value',axisLine:{show:false},splitLine:{lineStyle:{color:'#1a2a3a'}},axisLabel:{color:'#607080'}},
+    yAxis:{type:'category',data:feedbackData.types,axisLine:{lineStyle:{color:'#2a3a4a'}},axisLabel:{color:'#607080'}},
+    series:[{name:'已解决',type:'bar',stack:'fb',data:feedbackData.done,itemStyle:{color:'#67c23a'},barWidth:'50%'},{name:'解决中',type:'bar',stack:'fb',data:feedbackData.inProgress,itemStyle:{color:'#e6a23c'}},{name:'待验证',type:'bar',stack:'fb',data:feedbackData.verify,itemStyle:{color:'#f56c6c'}},{name:'总数',type:'bar',data:feedbackData.total,itemStyle:{color:'rgba(64,158,255,0.15)'},barWidth:'50%',barGap:'-100%',z:-1,label:{show:true,position:'right',color:'#409eff',fontSize:12,formatter:function(p){return p.value}}}]
+  })); window.addEventListener('resize',function(){c.resize();}); })();
+}
+initCharts();
 </script>
 </body>
 </html>
