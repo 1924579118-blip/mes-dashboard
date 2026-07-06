@@ -99,6 +99,7 @@ if(typeof echarts==='undefined'){var s2=document.createElement('script');s2.src=
   <div class="chart-box">
     <div class="chart-title">📋 工单类型运行情况</div>
     <div class="chart-container" id="chartOrders"></div>
+    ''' + ('<div style="font-size:13px; color:#c0ccda; line-height:1.9; margin-top:12px; padding:12px 14px; background:rgba(64,158,255,0.04); border-radius:8px; border-left:3px solid #f56c6c;"><b>工单运行情况总结：</b><br>' + order_summary + '</div>' if order_summary else '') + '''
     <div style="margin-top:16px; border-top:1px solid rgba(64,158,255,0.1); padding-top:14px;">
       <div style="font-size:14px; font-weight:600; color:#c0ccda; margin-bottom:12px; padding-left:8px; border-left:3px solid #67c23a;">🔗 端到端流程</div>
       <div style="margin-bottom:12px;">
