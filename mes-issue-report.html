@@ -272,12 +272,10 @@
 
   <main>
   <header class="hero">
-    <span class="kicker">对账材料 · 提交领导</span>
     <h1>MES 系统需求与问题开发进度汇总</h1>
-    <p class="sub">2026 年 5 月中旬以来提报的需求与 ISSUE 清单，经 8/13、8/17 两次核对，开发方（乙方）整改与销项情况汇总，供与乙方交涉对账使用。</p>
     <div class="meta">
       <span>数据区间：<b>2026-05-15 ～ 2026-09-01</b></span>
-      <span>核对节点：<b>8 月 13 日、8 月 17 日</b></span>
+      <span>核对节点：<b>8/13、8/17 核对，9/1 更新</b></span>
       <span>在册问题：<b>18 项</b>（高优 10 项）</span>
       <span>真正闭环：<b style="color:var(--red);">0 项</b></span>
     </div>
@@ -296,8 +294,8 @@
         <p><b>高优先级问题长期堆积。</b>高优 <span class="num">10 项</span>、占比 56%；其中 <span class="num">6 项</span>滞留超过 60 天，最早一项（返工工单和试跑计划，5/15 提出）已滞留 <span class="num">109 天</span>，有日期的 13 项平均滞留约 <span class="num">59 天</span>。</p>
       </li>
       <li>
-        <span class="tag">阻塞</span>
-        <p><b>两个"重点"试跑任务被环境问题卡死。</b>磨划工单试跑、返工单试跑（旧系统切换）及返工工单计划共 <span class="num">3 项</span>，均因"ERP 测试环境过期，暂时无法联调测试"停摆，旧系统切换无法推进。</p>
+        <span class="tag">停滞</span>
+        <p><b>ERP 测试环境已恢复，乙方仍不推进联调测试。</b>磨划工单试跑、返工单试跑（旧系统切换）及返工工单计划共 <span class="num">3 项</span>，8/13 以"环境过期、无法联调"为由停摆；<b>现测试环境已经恢复，乙方后续却没有继续测试</b>，两个"重点"旧系统切换任务继续搁置——阻塞原因已从"环境问题"变为"乙方不行动"。</p>
       </li>
       <li class="warn">
         <span class="tag">失真</span>
@@ -383,28 +381,7 @@
   </section>
 
   <section>
-    <h2><span class="no">3</span>重点阻塞：ERP 测试环境过期，两项旧系统切换任务停摆</h2>
-    <div class="block-banner">
-      <b>卡点说明：</b>以下 3 项在 8/13 核对时备注均为"ERP 测试环境过期，暂时无法联调测试"。测试环境属乙方实施保障范围，环境过期直接导致 MES 与 ERP 无法联调，<b>磨划、返工两条产线的旧系统切换试跑无法推进</b>，是当前影响面最大的阻塞点。
-    </div>
-    <div class="block-cards">
-      <div class="block-card">
-        <div class="t"><span class="star">★</span> 磨划工单试跑 · 旧系统切换</div>
-        <p>标注"重点"。ERP 测试环境过期，无法联调测试，试跑与切换计划悬置。</p>
-      </div>
-      <div class="block-card">
-        <div class="t"><span class="star">★</span> 返工单试跑 · 旧系统切换</div>
-        <p>标注"重点"。同一环境原因阻塞，返工业务无法在新系统验证。</p>
-      </div>
-      <div class="block-card">
-        <div class="t">返工工单和试跑计划</div>
-        <p>谭飞 5/15 提报（高优），滞留 109 天，为清单中最早提报的问题，始终受同一环境问题制约。</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2><span class="no">4</span>问题明细清单（18 项）</h2>
+    <h2><span class="no">3</span>问题明细清单（18 项）</h2>
     <p class="sec-desc">按提报时间排序；"滞留"为自提出日至 2026-09-01 的天数，"—"表示原表未登记日期。</p>
     <div class="table-scroll">
       <table>
@@ -624,38 +601,6 @@
         </tbody>
       </table>
     </div>
-  </section>
-
-  <section>
-    <h2><span class="no">5</span>对乙方的明确诉求（建议交涉口径）</h2>
-    <p class="sec-desc">以下事项建议要求乙方当场给出书面答复与时间承诺，并纳入周度对账。</p>
-    <ul class="actions">
-      <li>
-        <span class="n"></span>
-        <p><b>立即恢复 ERP 测试环境</b>，给出环境可用时间与磨划工单、返工单试跑联调排期——环境属乙方实施保障，3 项任务（含 2 项重点）因此停摆。</p>
-        <span class="due">要求 3 个工作日内</span>
-      </li>
-      <li>
-        <span class="n"></span>
-        <p><b>10 项高优问题逐项给出开发计划与交付日期</b>；张晓山名下 5 项（最早 6/15 提报、滞留 78 天）优先排期，不得再以"已安排开发"笼统回应。</p>
-        <span class="due">要求本周内</span>
-      </li>
-      <li>
-        <span class="n"></span>
-        <p><b>"晶圆片不属于本工单"一项重新打开</b>，按验收标准现场验证后方可销项；后续所有销项必须附验证截图或验证记录，杜绝"标记完成、实际未完成"。</p>
-        <span class="due">立即纠正</span>
-      </li>
-      <li>
-        <span class="n"></span>
-        <p><b>已有技术方案的事项限期落地</b>：流程卡 MAP 显示（第 10、13 项，方案已明确）、物料超期卡控（第 6 项，已开过协调会）本周内反馈开发排期；不良报工接口逻辑（第 7 项）限期确认。</p>
-        <span class="due">要求本周内</span>
-      </li>
-      <li class="dev">
-        <span class="n"></span>
-        <p><b>建立周度销项对账机制</b>：每周五乙方按本清单逐项反馈状态（未开始 / 开发中 / 待验证 / 已闭环）及凭证，甲方按表现场核对，次周例会通报滞留与新增情况。</p>
-        <span class="due">即日起执行</span>
-      </li>
-    </ul>
   </section>
 
   <footer>
