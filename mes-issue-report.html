@@ -3,249 +3,139 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MES系统需求与问题开发进度汇总（与开发方对账材料）</title>
+<title>MES系统需求与问题开发进度汇总（乙方对账 · 2026-09-20）</title>
 <style>
   :root{
-    --bg:#F6F8FB;
-    --card:#FFFFFF;
-    --ink:#152033;
-    --ink-2:#637089;
-    --ink-3:#8A94A6;
-    --blue:#2F6BFF;
-    --blue-soft:#EEF3FF;
-    --line:#E6EAF2;
-    --red:#E5484D;
-    --red-soft:#FDECEC;
-    --orange:#F5A524;
-    --orange-soft:#FEF5E5;
-    --green:#16A37B;
-    --green-soft:#E8F6F1;
-    --gray-soft:#F0F2F6;
-    --radius:10px;
+    --bg:#F6F8FB;--card:#FFFFFF;--ink:#152033;--ink-2:#637089;--ink-3:#8A94A6;
+    --blue:#2F6BFF;--blue-soft:#EEF3FF;--line:#E6EAF2;
+    --red:#E5484D;--red-soft:#FDECEC;
+    --orange:#F5A524;--orange-soft:#FEF5E5;
+    --green:#16A37B;--green-soft:#E8F6F1;
+    --purple:#7A5AF8;--purple-soft:#F0EDFE;
+    --gray-soft:#F0F2F6;--radius:10px;
   }
   *{box-sizing:border-box;}
   html{-webkit-text-size-adjust:100%;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
+  body{margin:0;background:var(--bg);color:var(--ink);
     font-family:"Inter","IBM Plex Sans","PingFang SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
-    line-height:1.6;
-    font-size:15px;
-  }
-  .wrap{max-width:1180px;margin:0 auto;padding:28px 24px 60px;}
-
-  /* ===== 头部 ===== */
-  header.hero{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:26px 30px;
-    margin-bottom:20px;
-  }
-  .hero .kicker{
-    display:inline-block;
-    font-size:12.5px;
-    font-weight:600;
-    letter-spacing:.08em;
-    color:var(--blue);
-    background:var(--blue-soft);
-    padding:3px 10px;
-    border-radius:999px;
-    margin-bottom:12px;
-  }
-  h1{
-    font-size:26px;
-    line-height:1.3;
-    margin:0 0 10px;
-    letter-spacing:-.01em;
-  }
-  .hero p.sub{
-    margin:0;
-    color:var(--ink-2);
-    font-size:14px;
-  }
-  .hero .meta{
-    display:flex;flex-wrap:wrap;gap:8px 22px;
-    margin-top:16px;padding-top:14px;
-    border-top:1px dashed var(--line);
-    font-size:13px;color:var(--ink-2);
-  }
+    line-height:1.6;font-size:15px;}
+  .wrap{max-width:1200px;margin:0 auto;padding:28px 24px 60px;}
+  header.hero{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 30px;margin-bottom:20px;}
+  .hero .kicker{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.08em;color:var(--blue);background:var(--blue-soft);padding:3px 10px;border-radius:999px;margin-bottom:12px;}
+  h1{font-size:26px;line-height:1.3;margin:0 0 10px;letter-spacing:-.01em;}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:13px;color:var(--ink-2);}
   .hero .meta b{color:var(--ink);font-weight:600;}
-
-  /* ===== 章节 ===== */
-  section{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:24px 28px;
-    margin-bottom:20px;
-  }
-  h2{
-    font-size:18px;margin:0 0 4px;
-    display:flex;align-items:center;gap:9px;
-    letter-spacing:-.01em;
-  }
-  h2 .no{
-    display:inline-flex;align-items:center;justify-content:center;
-    width:24px;height:24px;border-radius:7px;
-    background:var(--ink);color:#fff;font-size:13px;font-weight:700;
-    flex:0 0 auto;
-  }
+  section{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 28px;margin-bottom:20px;}
+  h2{font-size:18px;margin:0 0 4px;display:flex;align-items:center;gap:9px;letter-spacing:-.01em;}
+  h2 .no{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;font-size:13px;font-weight:700;flex:0 0 auto;}
   .sec-desc{color:var(--ink-2);font-size:13.5px;margin:0 0 18px;}
-
-  /* ===== 核心结论 ===== */
   .findings{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
-  .findings li{
-    display:grid;grid-template-columns:34px 1fr;gap:12px;
-    background:var(--bg);
-    border:1px solid var(--line);
-    border-left:4px solid var(--red);
-    border-radius:8px;
-    padding:13px 16px;
-  }
-  .findings li.warn{border-left-color:var(--orange);}
+  .findings li{display:grid;grid-template-columns:34px 1fr;gap:12px;background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--green);border-radius:8px;padding:13px 16px;}
+  .findings li.warn{border-left-color:var(--red);}
   .findings li.info{border-left-color:var(--blue);}
-  .findings .tag{
-    align-self:start;
-    font-size:12px;font-weight:700;color:#fff;
-    background:var(--red);border-radius:6px;
-    text-align:center;padding:2px 0;margin-top:2px;
-  }
-  .findings li.warn .tag{background:var(--orange);}
+  .findings li.amber{border-left-color:var(--orange);}
+  .findings .tag{align-self:start;font-size:12px;font-weight:700;color:#fff;background:var(--green);border-radius:6px;text-align:center;padding:2px 0;margin-top:2px;}
+  .findings li.warn .tag{background:var(--red);}
+  .findings li.amber .tag{background:var(--orange);}
   .findings li.info .tag{background:var(--blue);}
   .findings p{margin:0;font-size:14px;}
   .findings b{font-weight:700;}
   .findings .num{color:var(--red);font-weight:700;font-variant-numeric:tabular-nums;}
-
-  /* ===== 指标卡 ===== */
+  .findings .good{color:var(--green);font-weight:700;font-variant-numeric:tabular-nums;}
   .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;}
-  .kpi{
-    border:1px solid var(--line);border-radius:9px;
-    padding:15px 14px 13px;background:var(--bg);
-  }
+  .kpi{border:1px solid var(--line);border-radius:9px;padding:15px 14px 13px;background:var(--bg);}
   .kpi .v{font-size:28px;font-weight:750;line-height:1.1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
   .kpi .v small{font-size:14px;font-weight:600;color:var(--ink-2);margin-left:2px;}
   .kpi .l{font-size:12.5px;color:var(--ink-2);margin-top:5px;line-height:1.4;}
-  .kpi.red .v{color:var(--red);}
-  .kpi.orange .v{color:var(--orange);}
-  .kpi.blue .v{color:var(--blue);}
-
-  /* ===== 图表 ===== */
-  .chart-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:24px;align-items:start;}
-  .bar-row{display:grid;grid-template-columns:168px 1fr 52px;gap:10px;align-items:center;margin-bottom:9px;font-size:12.5px;}
+  .kpi.red .v{color:var(--red);}.kpi.green .v{color:var(--green);}.kpi.orange .v{color:var(--orange);}.kpi.blue .v{color:var(--blue);}
+  .chart-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:start;}
+  .bar-row{display:grid;grid-template-columns:182px 1fr 52px;gap:10px;align-items:center;margin-bottom:9px;font-size:12.5px;}
   .bar-row .name{color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .bar-track{background:var(--gray-soft);border-radius:5px;height:17px;position:relative;overflow:hidden;}
   .bar-fill{height:100%;border-radius:5px;min-width:2px;}
   .bar-fill.c-block{background:var(--red);}
-  .bar-fill.c-fake{background:linear-gradient(90deg,var(--red),var(--orange));}
   .bar-fill.c-dev{background:var(--blue);}
+  .bar-fill.c-confirm{background:var(--purple);}
+  .bar-fill.c-hold{background:#C9D2E3;}
   .bar-fill.c-open{background:#9AA6BC;}
-  .bar-fill.c-plan{background:var(--orange);}
   .bar-row .d{text-align:right;font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink);}
   .chart-note{font-size:12px;color:var(--ink-3);margin-top:10px;line-height:1.5;}
   .legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:2px 0 16px;font-size:12px;color:var(--ink-2);}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px;}
-
   .dist{list-style:none;margin:0;padding:0;}
-  .dist li{margin-bottom:13px;font-size:13px;}
+  .dist li{margin-bottom:12px;font-size:13px;}
   .dist .top{display:flex;justify-content:space-between;margin-bottom:4px;}
   .dist .top b{font-variant-numeric:tabular-nums;}
   .dist .track{background:var(--gray-soft);border-radius:5px;height:12px;overflow:hidden;}
   .dist .fill{height:100%;border-radius:5px;}
-  .dist .fill.block{background:var(--red);}
-  .dist .fill.fake{background:var(--orange);}
+  .dist .fill.closed{background:var(--green);}
+  .dist .fill.confirm{background:var(--purple);}
   .dist .fill.dev{background:var(--blue);}
+  .dist .fill.block{background:var(--red);}
   .dist .fill.open{background:#9AA6BC;}
-  .dist .fill.plan{background:#C9D2E3;}
-
-  /* ===== 阻塞专题 ===== */
-  .block-banner{
-    background:var(--red-soft);
-    border:1px solid #F3C2C4;
-    border-radius:9px;
-    padding:16px 18px;margin-bottom:16px;
-    font-size:14px;
-  }
-  .block-banner b{color:var(--red);}
-  .block-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-  .block-card{
-    border:1px solid #F3C2C4;border-radius:9px;padding:14px 16px;background:#FFF;
-  }
-  .block-card .t{font-weight:700;font-size:14px;margin-bottom:6px;}
-  .block-card .t .star{color:var(--red);}
-  .block-card p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.55;}
-
-  /* ===== 表格 ===== */
+  .dist .fill.hold{background:#C9D2E3;}
+  .dist .fill.reject{background:var(--ink-3);}
+  .risk-banner{background:var(--red-soft);border:1px solid #F3C2C4;border-radius:9px;padding:16px 18px;margin-bottom:16px;font-size:14px;}
+  .risk-banner b{color:var(--red);}
+  .risk-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .risk-card{border:1px solid #F3C2C4;border-radius:9px;padding:14px 16px;background:#FFF;}
+  .risk-card .t{font-weight:700;font-size:14px;margin-bottom:6px;}
+  .risk-card .t .star{color:var(--red);}
+  .risk-card p{margin:0;font-size:12.5px;color:var(--ink-2);line-height:1.55;}
   .table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:9px;}
-  table{border-collapse:collapse;width:100%;min-width:1020px;font-size:13px;}
+  table{border-collapse:collapse;width:100%;min-width:1160px;font-size:13px;}
   th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
-  th{
-    background:var(--bg);font-weight:650;font-size:12.5px;color:var(--ink);
-    white-space:nowrap;position:sticky;top:0;
-  }
+  th{background:var(--bg);font-weight:650;font-size:12.5px;color:var(--ink);white-space:nowrap;position:sticky;top:0;}
   td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
   td.c,th.c{text-align:center;}
   tbody tr:last-child td{border-bottom:none;}
   tbody tr:hover{background:#FAFBFE;}
   tr.row-block{background:#FFF8F8;}
-  tr.row-fake{background:#FFFBF2;}
+  tr.row-dev{background:#F8FAFF;}
   .desc-t{font-weight:600;color:var(--ink);}
   .desc-n{color:var(--ink-2);font-size:12.5px;margin-top:3px;line-height:1.5;}
-  .badge{
-    display:inline-block;padding:2px 9px;border-radius:999px;
-    font-size:12px;font-weight:650;white-space:nowrap;
-  }
+  .badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:650;white-space:nowrap;}
   .b-high{background:var(--red-soft);color:var(--red);}
   .b-mid{background:var(--orange-soft);color:#B97A0E;}
+  .b-low{background:var(--gray-soft);color:var(--ink-2);}
   .b-na{background:var(--gray-soft);color:var(--ink-3);}
-  .st{
-    display:inline-block;padding:2px 9px;border-radius:6px;
-    font-size:12px;font-weight:600;white-space:nowrap;
-  }
-  .st-block{background:var(--red-soft);color:var(--red);}
-  .st-fake{background:var(--orange-soft);color:#B97A0E;}
+  .st{display:inline-block;padding:2px 9px;border-radius:6px;font-size:12px;font-weight:600;white-space:nowrap;}
+  .st-closed{background:var(--green-soft);color:var(--green);}
+  .st-reject{background:var(--gray-soft);color:var(--ink-3);}
+  .st-confirm{background:var(--purple-soft);color:var(--purple);}
   .st-dev{background:var(--blue-soft);color:var(--blue);}
+  .st-hold{background:var(--gray-soft);color:var(--ink-2);}
+  .st-block{background:var(--red-soft);color:var(--red);}
   .st-open{background:var(--gray-soft);color:var(--ink-2);}
-  .st-plan{background:var(--orange-soft);color:#B97A0E;}
+  .plan{font-size:12px;font-variant-numeric:tabular-nums;color:var(--ink-2);font-weight:600;}
+  .plan.tbd{color:var(--red);font-weight:700;}
   .age{font-weight:700;font-variant-numeric:tabular-nums;}
-  .age.hot{color:var(--red);}
-  .age.warm{color:#B97A0E;}
-
-  /* ===== 行动诉求 ===== */
+  .age.hot{color:var(--red);}.age.warm{color:#B97A0E;}
   .actions{list-style:none;margin:0;padding:0;display:grid;gap:11px;counter-reset:act;}
-  .actions li{
-    display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:start;
-    border:1px solid var(--line);border-radius:8px;padding:13px 16px;background:var(--bg);
-  }
-  .actions .n{
-    counter-increment:act;
-    width:26px;height:26px;border-radius:7px;background:var(--blue);color:#fff;
-    font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;
-    margin-top:1px;
-  }
+  .actions li{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:start;border:1px solid var(--line);border-radius:8px;padding:13px 16px;background:var(--bg);}
+  .actions .n{counter-increment:act;width:26px;height:26px;border-radius:7px;background:var(--red);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;margin-top:1px;}
   .actions .n::before{content:counter(act);}
   .actions p{margin:0;font-size:14px;}
-  .actions .due{
-    font-size:12px;font-weight:700;color:var(--red);background:var(--red-soft);
-    padding:3px 10px;border-radius:999px;white-space:nowrap;margin-top:2px;
-  }
-  .actions li.dev .n{background:var(--ink);}
-
-  footer{
-    color:var(--ink-3);font-size:12.5px;text-align:center;
-    padding:10px 0 0;line-height:1.7;
-  }
-  .table-caption{
-    caption-side:top;text-align:left;
-    font-size:12.5px;color:var(--ink-3);font-weight:400;
-    padding:0 2px 8px;line-height:1.5;
-  }
-
+  .actions .due{font-size:12px;font-weight:700;color:var(--red);background:var(--red-soft);padding:3px 10px;border-radius:999px;white-space:nowrap;margin-top:2px;}
+  footer{color:var(--ink-3);font-size:12.5px;text-align:center;padding:10px 0 0;line-height:1.7;}
+  .table-caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--ink-3);font-weight:400;padding:0 2px 8px;line-height:1.5;}
+  .summary-box{margin-top:20px;border:1px solid var(--line);border-radius:9px;background:var(--bg);padding:18px 20px;}
+  .summary-box h3{margin:0 0 13px;font-size:15px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;}
+  .summary-box h3::before{content:"";width:4px;height:15px;border-radius:2px;background:var(--blue);display:inline-block;}
+  .sum-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  .sum-list li{display:grid;grid-template-columns:78px 1fr;gap:12px;align-items:start;font-size:13.5px;}
+  .sum-list p{margin:0;color:var(--ink-2);line-height:1.55;}
+  .sum-list b{color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;}
+  .sum-tag{justify-self:start;font-size:12px;font-weight:700;padding:3px 11px;border-radius:999px;white-space:nowrap;margin-top:1px;}
+  .sum-tag.ok{background:var(--green-soft);color:var(--green);}
+  .sum-tag.blue{background:var(--blue-soft);color:var(--blue);}
+  .sum-tag.gray{background:var(--gray-soft);color:var(--ink-2);}
+  .sum-tag.amber{background:var(--orange-soft);color:#B97A0E;}
+  .sum-tag.red{background:var(--red-soft);color:var(--red);}
   @media (max-width:960px){
     .kpis{grid-template-columns:repeat(3,1fr);}
     .chart-grid{grid-template-columns:1fr;}
-    .block-cards{grid-template-columns:1fr;}
+    .risk-cards{grid-template-columns:1fr;}
     .bar-row{grid-template-columns:120px 1fr 44px;}
   }
   @media (max-width:600px){
@@ -263,352 +153,742 @@
     .table-scroll{overflow:visible;}
     table{min-width:0;font-size:11px;}
     th,td{padding:6px 8px;}
-    .bar-row,.block-card,.kpi{page-break-inside:avoid;}
+    .bar-row,.risk-card,.kpi{page-break-inside:avoid;}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <main>
   <header class="hero">
+    <span class="kicker">乙方对账 · 周度进度核对</span>
     <h1>MES 系统需求与问题开发进度汇总</h1>
     <div class="meta">
-      <span>数据区间：<b>2026-05-15 ～ 2026-09-01</b></span>
-      <span>核对节点：<b>8/13、8/17 核对，9/1 更新</b></span>
-      <span>在册问题：<b>18 项</b>（高优 10 项）</span>
-      <span>真正闭环：<b style="color:var(--red);">0 项</b></span>
+      <span>台账区间：<b>2026-04-28 ～ 2026-09-20</b></span>
+      <span>核对节点：<b>8/13、8/17 核对，9/20 更新</b></span>
+      <span>在册问题：<b>48 项</b>（高优 13 项）</span>
+      <span>已闭环：<b style="color:var(--green);">30 项</b></span>
+      <span>未闭环：<b style="color:var(--red);">16 项</b></span>
     </div>
   </header>
 
   <section>
-    <h2><span class="no">!</span>核心结论：近两周开发基本停滞，问题只增不减</h2>
-    <p class="sec-desc">以下六条为本次对账最需要向乙方明确的事实，均可在明细表中逐项对应。</p>
+    <h2><span class="no">!</span>核心结论：闭环率升至六成，仅剩三项高优「旧系统切换」攻坚</h2>
+    <p class="sec-desc">以下为本周（截至 9/20）对账最需向乙方明确的事实，均可在明细表逐项对应。</p>
     <ul class="findings">
       <li>
-        <span class="tag">停滞</span>
-        <p><b>18 项问题无一项真正闭环。</b>8/13、8/17 两次核对中，前期问题原样挂起；8 月份不仅未销项，还<span class="num">新增 4 项</span>问题（8/11 默认仓位、进站报错、8/17 批次入库异常等），问题池持续扩大。</p>
-      </li>
-      <li>
-        <span class="tag">积压</span>
-        <p><b>高优先级问题长期堆积。</b>高优 <span class="num">10 项</span>、占比 56%；其中 <span class="num">6 项</span>滞留超过 60 天，最早一项（返工工单和试跑计划，5/15 提出）已滞留 <span class="num">109 天</span>，有日期的 13 项平均滞留约 <span class="num">59 天</span>。</p>
-      </li>
-      <li>
-        <span class="tag">停滞</span>
-        <p><b>ERP 测试环境已恢复，乙方仍不推进联调测试。</b>磨划工单试跑、返工单试跑（旧系统切换）及返工工单计划共 <span class="num">3 项</span>，8/13 以"环境过期、无法联调"为由停摆；<b>现测试环境已经恢复，乙方后续却没有继续测试</b>，两个"重点"旧系统切换任务继续搁置——阻塞原因已从"环境问题"变为"乙方不行动"。</p>
+        <span class="tag">进展</span>
+        <p><b>本周再销 11 项，累计 30 项测试确认关闭。</b>台账 48 项中已闭环 <span class="good">30 项（62%）</span>，其中高优闭环 <span class="good">10</span> 项；另有 <span class="num">2 项</span>开发完成待测试、<span class="num">5 项</span>推进/调研中，收尾趋势明确。</p>
       </li>
       <li class="warn">
-        <span class="tag">失真</span>
-        <p><b>出现"标记已完成、实际未完成"的虚假闭环。</b>"晶圆片不属于本工单请确认"（李志兵 7/30 提报，高优）系统状态为已完成，现场核实实际未完成，销项数据不可信。</p>
+        <span class="tag">卡点</span>
+        <p><b>三项高优「旧系统切换 / 试跑」仍卡在 ERP 联调。</b>磨划工单试跑（#38，计划 <span class="num">TBD</span>）、返工单试跑（#39，计划 9/24）及返工工单和试跑计划（#2，5/15 提报已滞留 <span class="num">128 天</span>，计划 9/24）仍未联调；#39 已在 9/15 明确「返工批次以物料批方式传 MES、入库传物料批批号」方案，是当前唯一硬骨头。</p>
       </li>
-      <li class="warn">
-        <span class="tag">空转</span>
-        <p><b>已安排开发 ≠ 问题解决。</b>开发责任人张晓山名下 <span class="num">5 项</span>（最早 6/15 提报，已滞留 78 天）至今无一关闭；8 月新增指派的 3 项仍在积压，安排了开发但问题始终没有解决。</p>
+      <li class="amber">
+        <span class="tag">待验</span>
+        <p><b>2 项开发完成待测试，9/24 到期。</b>#13 晶圆上机颗数自动求和、#35 子批次合批（去除卡控＋只允许同根合批）均已于 9/20 进入测试，请按 9/24 节点完成验证销项。</p>
       </li>
       <li class="info">
-        <span class="tag">悬空</span>
-        <p><b>已有明确技术方案却不落地。</b>流程卡 MAP 显示问题（雷文翔 7/18 已给出表匹配方案）、物料超期卡控（已约唐华、李德晓、张旭开会）等事项停在"方案/待确认"状态，乙方未给出开发排期。</p>
+        <span class="tag">挂起</span>
+        <p><b>6 项需求挂起，多为「视报料接口而定」或偶发待观察。</b>#16/#17（晶圆改数量、物料批报废接口）取决于报料接口是否调整，若不调则无需开发；#3 五月对账、#29 返工跳站、#32 返工工步、#33 进站报错为偶发待观察，建议设定复盘时点，避免长期挂账。</p>
+      </li>
+      <li class="amber">
+        <span class="tag">新增</span>
+        <p><b>本周新增 #48 流程卡生产周期码字段调整，已闭环。</b>9/18 完成并测试关闭；#46 晶圆共用样品工单（本周补标高优）亦于 9/18 完成，较原计划 9/11 延后一周。</p>
       </li>
     </ul>
   </section>
 
   <section>
     <h2><span class="no">1</span>总体情况</h2>
-    <p class="sec-desc">关键数字一览（滞留天数按 2026-09-01 计算）。</p>
+    <p class="sec-desc">关键数字一览（滞留天数按 2026-09-20 计算）。</p>
     <div class="kpis">
-      <div class="kpi"><div class="v">18<small>项</small></div><div class="l">在册需求与 ISSUE</div></div>
-      <div class="kpi red"><div class="v">10<small>项</small></div><div class="l">高优先级（占 56%）</div></div>
-      <div class="kpi red"><div class="v">3<small>项</small></div><div class="l">联调停滞（含 2 项重点）</div></div>
-      <div class="kpi orange"><div class="v">6<small>项</small></div><div class="l">滞留超 60 天</div></div>
-      <div class="kpi blue"><div class="v">59<small>天</small></div><div class="l">平均滞留时长</div></div>
-      <div class="kpi orange"><div class="v">1<small>项</small></div><div class="l">标记完成但实际未完成</div></div>
+      <div class="kpi"><div class="v">48<small>项</small></div><div class="l">在册需求与 ISSUE</div></div>
+      <div class="kpi green"><div class="v">30<small>项</small></div><div class="l">测试确认关闭（62%）</div></div>
+      <div class="kpi red"><div class="v">3<small>项</small></div><div class="l">联调停滞·高优重点</div></div>
+      <div class="kpi blue"><div class="v">2<small>项</small></div><div class="l">开发完成·待测试</div></div>
+      <div class="kpi orange"><div class="v">3<small>项</small></div><div class="l">高优尚未闭环</div></div>
+      <div class="kpi orange"><div class="v">71<small>天</small></div><div class="l">有日期项平均滞留</div></div>
     </div>
   </section>
 
   <section>
-    <h2><span class="no">2</span>滞留时长与问题状态分布</h2>
-    <p class="sec-desc">左：各问题自提报之日起的滞留天数（仅有登记日期的 13 项）；右：18 项问题按当前状态分类。</p>
+    <h2><span class="no">2</span>状态分布与未闭环滞留时长</h2>
+    <p class="sec-desc">左：48 项问题按当前状态分类；右：未闭环且有登记日期项的滞留时长（倒序）。</p>
     <div class="chart-grid">
       <div>
-        <div class="legend">
-          <span><i style="background:var(--red);"></i>联调停滞·乙方未测试</span>
-          <span><i style="background:linear-gradient(90deg,var(--red),var(--orange));"></i>虚假闭环</span>
-          <span><i style="background:var(--blue);"></i>已指派开发·未关闭</span>
-          <span><i style="background:var(--orange);"></i>方案/待确认/推进中</span>
-          <span><i style="background:#9AA6BC;"></i>未关闭</span>
-        </div>
-        <div class="bar-row"><span class="name">返工工单和试跑计划</span><div class="bar-track"><div class="bar-fill c-block" style="width:100%;"></div></div><span class="d">109天</span></div>
-        <div class="bar-row"><span class="name">5月对账（报工/物料/库存）</span><div class="bar-track"><div class="bar-fill c-open" style="width:90%;"></div></div><span class="d">98天</span></div>
-        <div class="bar-row"><span class="name">包装入库查询·FIN→SHIP</span><div class="bar-track"><div class="bar-fill c-dev" style="width:72%;"></div></div><span class="d">78天</span></div>
-        <div class="bar-row"><span class="name">出站批次小于库存·预留表</span><div class="bar-track"><div class="bar-fill c-dev" style="width:71%;"></div></div><span class="d">77天</span></div>
-        <div class="bar-row"><span class="name">物料超期加卡控</span><div class="bar-track"><div class="bar-fill c-plan" style="width:62%;"></div></div><span class="d">68天</span></div>
-        <div class="bar-row"><span class="name">不良报工接口逻辑</span><div class="bar-track"><div class="bar-fill c-plan" style="width:59%;"></div></div><span class="d">64天</span></div>
-        <div class="bar-row"><span class="name">SPC 报表查询</span><div class="bar-track"><div class="bar-fill c-plan" style="width:43%;"></div></div><span class="d">47天</span></div>
-        <div class="bar-row"><span class="name">物料批报废接口</span><div class="bar-track"><div class="bar-fill c-open" style="width:42%;"></div></div><span class="d">46天</span></div>
-        <div class="bar-row"><span class="name">流程卡不显示 MAP</span><div class="bar-track"><div class="bar-fill c-plan" style="width:41%;"></div></div><span class="d">45天</span></div>
-        <div class="bar-row"><span class="name">入库标签匹配 BUG</span><div class="bar-track"><div class="bar-fill c-open" style="width:39%;"></div></div><span class="d">43天</span></div>
-        <div class="bar-row"><span class="name">晶圆片不属于本工单</span><div class="bar-track"><div class="bar-fill c-fake" style="width:30%;"></div></div><span class="d">33天</span></div>
-        <div class="bar-row"><span class="name">流程卡 MAP 字段问题</span><div class="bar-track"><div class="bar-fill c-open" style="width:30%;"></div></div><span class="d">33天</span></div>
-        <div class="bar-row"><span class="name">物料入库默认仓位</span><div class="bar-track"><div class="bar-fill c-dev" style="width:19%;"></div></div><span class="d">21天</span></div>
-        <p class="chart-note">注：磨划工单试跑、返工单试跑、进站报错、批次入库异常 4 项原表未登记提出日期，未纳入上图；其中两项重点试跑任务 8/13 因 ERP 测试环境过期停摆，现环境已恢复但乙方未继续测试。</p>
+        <ul class="dist">
+          <li><div class="top"><span>测试确认关闭（已闭环）</span><b>30 项</b></div><div class="track"><div class="fill closed" style="width:62%;"></div></div></li>
+          <li><div class="top"><span>需求挂起（偶发/待定）</span><b>6 项</b></div><div class="track"><div class="fill hold" style="width:12%;"></div></div></li>
+          <li><div class="top"><span>联调停滞 · 高优重点</span><b>3 项</b></div><div class="track"><div class="fill block" style="width:6%;"></div></div></li>
+          <li><div class="top"><span>未关闭 · 推进/调研中</span><b>5 项</b></div><div class="track"><div class="fill open" style="width:10%;"></div></div></li>
+          <li><div class="top"><span>开发完成 · 待测试</span><b>2 项</b></div><div class="track"><div class="fill dev" style="width:4%;"></div></div></li>
+          <li><div class="top"><span>需求驳回</span><b>2 项</b></div><div class="track"><div class="fill reject" style="width:4%;"></div></div></li>
+        </ul>
+        <p class="chart-note">「需求驳回」2 项（#6 锡膏自动打标签、#12 在制品报废/返工数量）不计待办；「待客户确认」本期为 0（#10/#14/#32 已分别关闭或转挂起）。</p>
       </div>
       <div>
-        <ul class="dist">
-          <li>
-            <div class="top"><span>联调停滞 · 环境已恢复未测试</span><b>3 项</b></div>
-            <div class="track"><div class="fill block" style="width:100%;"></div></div>
-          </li>
-          <li>
-            <div class="top"><span>已指派开发 · 未关闭</span><b>5 项</b></div>
-            <div class="track"><div class="fill dev" style="width:83%;"></div></div>
-          </li>
-          <li>
-            <div class="top"><span>未关闭 / 未登记启动</span><b>5 项</b></div>
-            <div class="track"><div class="fill open" style="width:83%;"></div></div>
-          </li>
-          <li>
-            <div class="top"><span>方案 / 待确认 / 推进中</span><b>4 项</b></div>
-            <div class="track"><div class="fill plan" style="width:67%;"></div></div>
-          </li>
-          <li>
-            <div class="top"><span>标记完成 · 实际未完成</span><b>1 项</b></div>
-            <div class="track"><div class="fill fake" style="width:33%;"></div></div>
-          </li>
-        </ul>
-        <p class="chart-note">"已指派开发 · 未关闭"5 项全部挂在开发责任人张晓山名下；"未关闭"中含"MES 需要盘点功能"1 项，原表未登记提出人、时间与优先级。</p>
+        <div class="legend">
+          <span><i style="background:var(--red);"></i>联调停滞·重点</span>
+          <span><i style="background:var(--blue);"></i>待测试</span>
+          <span><i style="background:#9AA6BC;"></i>推进/调研中</span>
+          <span><i style="background:#C9D2E3;"></i>挂起待观察</span>
+        </div>
+          <div class="bar-row"><span class="name">载具需要类似设备定时保养功能模块</span><div class="bar-track"><div class="bar-fill c-open" style="width:100%;"></div></div><span class="d">145天</span></div>
+          <div class="bar-row"><span class="name">返工工单和试跑计划</span><div class="bar-track"><div class="bar-fill c-block" style="width:88%;"></div></div><span class="d">128天</span></div>
+          <div class="bar-row"><span class="name">5月对账：报工、物料消耗、物料库存</span><div class="bar-track"><div class="bar-fill c-hold" style="width:81%;"></div></div><span class="d">117天</span></div>
+          <div class="bar-row"><span class="name">UPH维护（每日定时汇总实测UPH</span><div class="bar-track"><div class="bar-fill c-open" style="width:74%;"></div></div><span class="d">108天</span></div>
+          <div class="bar-row"><span class="name">晶圆片上机自动核算晶圆数量</span><div class="bar-track"><div class="bar-fill c-dev" style="width:48%;"></div></div><span class="d">69天</span></div>
+          <div class="bar-row"><span class="name">SPC报表（按产品、封装形式等字段</span><div class="bar-track"><div class="bar-fill c-open" style="width:46%;"></div></div><span class="d">66天</span></div>
+          <div class="bar-row"><span class="name">晶圆修改数量：剩余数量栏直接修改（</span><div class="bar-track"><div class="bar-fill c-hold" style="width:45%;"></div></div><span class="d">65天</span></div>
+          <div class="bar-row"><span class="name">物料批动作主料需修改数量功能（中途</span><div class="bar-track"><div class="bar-fill c-hold" style="width:45%;"></div></div><span class="d">65天</span></div>
+          <div class="bar-row"><span class="name">打入库标签无法按条件匹配客户标签模</span><div class="bar-track"><div class="bar-fill c-open" style="width:43%;"></div></div><span class="d">62天</span></div>
+          <div class="bar-row"><span class="name">交班管理界面增加暂存数据界面</span><div class="bar-track"><div class="bar-fill c-open" style="width:41%;"></div></div><span class="d">60天</span></div>
+          <div class="bar-row"><span class="name">返工跳站问题</span><div class="bar-track"><div class="bar-fill c-hold" style="width:40%;"></div></div><span class="d">58天</span></div>
+          <div class="bar-row"><span class="name">返工工步与工艺路线工步不一致</span><div class="bar-track"><div class="bar-fill c-hold" style="width:37%;"></div></div><span class="d">53天</span></div>
+          <div class="bar-row"><span class="name">批次进站报系统错误</span><div class="bar-track"><div class="bar-fill c-hold" style="width:37%;"></div></div><span class="d">53天</span></div>
+          <div class="bar-row"><span class="name">工单子批次合批无法入库</span><div class="bar-track"><div class="bar-fill c-dev" style="width:36%;"></div></div><span class="d">52天</span></div>
+        <p class="chart-note">注：#38/#39 两项高优重点及部分项原表未登记提出日期，未纳入滞留图；#1 载具保养（4/28）已滞留 145 天、计划仍 TBD，为在册最久项。</p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2><span class="no">3</span>问题明细清单（18 项）</h2>
-    <p class="sec-desc">按提报时间排序；"滞留"为自提出日至 2026-09-01 的天数，"—"表示原表未登记日期。</p>
+    <h2><span class="no">3</span>本周必须推动的高风险项</h2>
+    <div class="risk-banner">三项<b>高优「旧系统切换 / 试跑」</b>直接决定旧系统下线节点；#2、#39 计划 9/24，#38 仍 TBD，是对账第一优先级。</div>
+    <div class="risk-cards">
+      <div class="risk-card">
+        <div class="t"><span class="star">★</span> 磨划工单试跑 · 旧系统切换（#38）</div>
+        <p>ERP 测试环境过期无法联调，计划完成仍为 <b>TBD</b>。责任人 IT/颜江明，请本周给出环境恢复与切换排期。</p>
+      </div>
+      <div class="risk-card">
+        <div class="t"><span class="star">★</span> 返工单试跑 · 旧系统切换（#39）</div>
+        <p>9/15 已明确物料批传递方案，计划 9/24 联调。责任人 黄思霖/颜江明，需按期完成试跑。</p>
+      </div>
+      <div class="risk-card">
+        <div class="t"><span class="star">★</span> 返工工单和试跑计划（#2）</div>
+        <p>谭飞 5/15 提报，已滞留 128 天（在册第二久）；计划 9/24，需求调研与联调须一并收口。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="no">4</span>问题明细清单（48 项）</h2>
+    <p class="sec-desc">按台账编号排序；「滞留」为自提出日至 2026-09-20 天数，「—」为原表未登记；末列「计划完成」取自备注末尾日期，TBD 标红。</p>
     <div class="table-scroll">
       <table>
-        <caption class="table-caption">表：18 项需求与 ISSUE 明细（按提报时间排序；滞留天数截至 2026-09-01，"—"为原表未登记）</caption>
+        <caption class="table-caption">表：48 项需求与 ISSUE 明细（滞留截至 2026-09-20；末列计划完成日期取自备注末尾）</caption>
         <thead>
           <tr>
             <th class="c" style="width:38px;">#</th>
             <th>需求功能 / ISSUE 描述</th>
-            <th style="width:210px;">当前进度与卡点（备注）</th>
+            <th style="width:252px;">当前进度与卡点（备注）</th>
             <th class="c" style="width:70px;">提出人</th>
-            <th class="c" style="width:86px;">提出时间</th>
-            <th class="c" style="width:64px;">滞留</th>
-            <th class="c" style="width:56px;">优先级</th>
-            <th class="c" style="width:74px;">开发责任人</th>
-            <th class="c" style="width:104px;">状态</th>
+            <th class="c" style="width:84px;">提出时间</th>
+            <th class="c" style="width:60px;">滞留</th>
+            <th class="c" style="width:54px;">优先级</th>
+            <th class="c" style="width:88px;">开发责任人</th>
+            <th class="c" style="width:108px;">状态</th>
+            <th class="c" style="width:84px;">计划完成</th>
           </tr>
         </thead>
         <tbody>
-          <tr class="row-block">
-            <td class="c">1</td>
-            <td><div class="desc-t">返工工单和试跑计划</div></td>
-            <td><div class="desc-n">8/13 因 ERP 测试环境过期无法联调；现环境已恢复，乙方后续未继续测试（9/1 核实）</div></td>
-            <td class="c">谭飞</td>
-            <td class="c">2026/5/15</td>
-            <td class="num"><span class="age hot">109 天</span></td>
-            <td class="c"><span class="badge b-high">高</span></td>
-            <td class="c">—</td>
-            <td class="c"><span class="st st-block">联调停滞</span></td>
-          </tr>
           <tr>
+            <td class="c">1</td>
+            <td><div class="desc-t">载具需要类似设备定时保养功能模块</div></td>
+            <td><div class="desc-n">9/3 核对仍为「需要需求调研」，需求尚未明确、开发未启动</div></td>
+            <td class="c">彭益麟</td>
+            <td class="c">2026/04/28</td>
+            <td class="num"><span class="age hot">145 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">IT/颜江明</td>
+            <td class="c"><span class="st st-open">未关闭·推进中</span></td>
+            <td class="c plan tbd">TBD</td>
+          </tr>
+          <tr class="row-block">
             <td class="c">2</td>
-            <td><div class="desc-t">5 月对账：报工、物料消耗、物料库存数据与 ERP 对账</div></td>
-            <td><div class="desc-n">8/13 核对仍挂起，未见对账完成闭环</div></td>
+            <td><div class="desc-t">返工工单和试跑计划</div></td>
+            <td><div class="desc-n">ERP 测试环境过期无法联调；9/3 仍为「需要需求调研」；旧系统切换前置，无实质推进</div></td>
             <td class="c">谭飞</td>
-            <td class="c">2026/5/26</td>
-            <td class="num"><span class="age hot">98 天</span></td>
-            <td class="c"><span class="badge b-mid">中</span></td>
-            <td class="c">—</td>
-            <td class="c"><span class="st st-open">未关闭</span></td>
+            <td class="c">2026/05/15</td>
+            <td class="num"><span class="age hot">128 天</span></td>
+            <td class="c"><span class="badge b-high">高</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-block">联调停滞·重点</span></td>
+            <td class="c plan">2026/9/24</td>
           </tr>
           <tr>
             <td class="c">3</td>
-            <td><div class="desc-t">MES 需要盘点功能</div></td>
-            <td><div class="desc-n">原表未登记进度、提出人与排期</div></td>
-            <td class="c">—</td>
-            <td class="c">—</td>
-            <td class="num">—</td>
-            <td class="c"><span class="badge b-na">未登记</span></td>
-            <td class="c">—</td>
-            <td class="c"><span class="st st-open">未登记启动</span></td>
+            <td><div class="desc-t">5月对账：报工、物料消耗、物料库存数据与ERP对账</div></td>
+            <td><div class="desc-n">仍为「需要需求调研」；12. 需求挂起，对账闭环未完成</div></td>
+            <td class="c">谭飞</td>
+            <td class="c">2026/05/26</td>
+            <td class="num"><span class="age hot">117 天</span></td>
+            <td class="c"><span class="badge b-mid">中</span></td>
+            <td class="c">IT/颜江明</td>
+            <td class="c"><span class="st st-hold">需求挂起</span></td>
+            <td class="c plan">—</td>
           </tr>
           <tr>
             <td class="c">4</td>
-            <td><div class="desc-t">包装入库加一个查询</div></td>
-            <td><div class="desc-n">批次完工入库后，批次状态需从 FIN 变为 SHIP</div></td>
-            <td class="c">蔡金孝</td>
-            <td class="c">2026/6/15</td>
-            <td class="num"><span class="age hot">78 天</span></td>
-            <td class="c"><span class="badge b-high">高</span></td>
-            <td class="c">张晓山</td>
-            <td class="c"><span class="st st-dev">已指派·未关闭</span></td>
+            <td><div class="desc-t">UPH维护（每日定时汇总实测UPH）</div></td>
+            <td><div class="desc-n">需求：按产品+工步+设备汇总当日产量/24h 得实测UPH，界面只显示当天最新、新增可手改「最终实测UPH」、点击产品看过账历史；仍在需求调研</div></td>
+            <td class="c">张鹏</td>
+            <td class="c">2026/06/04</td>
+            <td class="num"><span class="age hot">108 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">IT/颜江明</td>
+            <td class="c"><span class="st st-open">未关闭·推进中</span></td>
+            <td class="c plan">2026/9/22</td>
           </tr>
           <tr>
             <td class="c">5</td>
-            <td><div class="desc-t">出站物料批次报小于库存</div></td>
-            <td><div class="desc-n">批次出站后，设备物料预留表数据没有删除</div></td>
-            <td class="c">韩鹏</td>
-            <td class="c">2026/6/16</td>
-            <td class="num"><span class="age hot">77 天</span></td>
-            <td class="c"><span class="badge b-high">高</span></td>
-            <td class="c">张晓山</td>
-            <td class="c"><span class="st st-dev">已指派·未关闭</span></td>
+            <td><div class="desc-t">主料退料历史查询</div></td>
+            <td><div class="desc-n">可在物料批历史中查询；测试无误确认关闭</div></td>
+            <td class="c">刘宝珠</td>
+            <td class="c">2026/06/05</td>
+            <td class="num"><span class="age hot">107 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
           </tr>
           <tr>
             <td class="c">6</td>
-            <td><div class="desc-t">物料超期加卡控</div></td>
-            <td><div class="desc-n">已约会议（唐华、李德晓、张旭）；卡控目标：物料超期无法上机</div></td>
-            <td class="c">谭飞</td>
-            <td class="c">2026/6/25</td>
-            <td class="num"><span class="age hot">68 天</span></td>
-            <td class="c"><span class="badge b-mid">中</span></td>
+            <td><div class="desc-t">PDA扫码自动打标签（锡膏退冰回温后）</div></td>
+            <td><div class="desc-n">MES 驳回需求（少如）；需求驳回</div></td>
+            <td class="c">唐华</td>
+            <td class="c">2026/06/11</td>
+            <td class="num"><span class="age hot">101 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
             <td class="c">—</td>
-            <td class="c"><span class="st st-plan">方案阶段</span></td>
+            <td class="c"><span class="st st-reject">需求驳回</span></td>
+            <td class="c plan">—</td>
           </tr>
           <tr>
             <td class="c">7</td>
-            <td><div class="desc-t">不良报工出现在良品报工接口中，不良数量重复报（报工接口）</div></td>
-            <td><div class="desc-n">接口逻辑需确认：良品与完工数量一致为正常报工，不一致为不良品报工</div></td>
+            <td><div class="desc-t">包装入库加查询：批次完工入库状态 FIN→SHIP</div></td>
+            <td><div class="desc-n">测试无误确认关闭</div></td>
             <td class="c">蔡金孝</td>
-            <td class="c">2026/6/29</td>
-            <td class="num"><span class="age hot">64 天</span></td>
+            <td class="c">2026/06/15</td>
+            <td class="num"><span class="age hot">97 天</span></td>
             <td class="c"><span class="badge b-high">高</span></td>
-            <td class="c">—</td>
-            <td class="c"><span class="st st-plan">逻辑待确认</span></td>
+            <td class="c">张晓山</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
           </tr>
           <tr>
             <td class="c">8</td>
-            <td><div class="desc-t">SPC 报表（可按产品、封装形式等字段查询）</div></td>
-            <td><div class="desc-n">组织 EDC/SPC 功能再培训，推动功能数据建模及使用</div></td>
-            <td class="c">金伟伟</td>
-            <td class="c">2026/7/16</td>
-            <td class="num"><span class="age warm">47 天</span></td>
-            <td class="c"><span class="badge b-mid">中</span></td>
-            <td class="c">—</td>
-            <td class="c"><span class="st st-plan">推进中</span></td>
+            <td><div class="desc-t">出站物料批次报小于库存（出站后设备物料预留表未删除）</div></td>
+            <td><div class="desc-n">测试无误确认关闭</div></td>
+            <td class="c">韩鹏</td>
+            <td class="c">2026/06/16</td>
+            <td class="num"><span class="age hot">96 天</span></td>
+            <td class="c"><span class="badge b-high">高</span></td>
+            <td class="c">张晓山</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">2026/9/11</td>
           </tr>
           <tr>
             <td class="c">9</td>
-            <td><div class="desc-t">物料批动作主料也需要修改数量功能（中途使用报废场景）</div></td>
-            <td><div class="desc-n">需要添加物料批报废接口</div></td>
-            <td class="c">刘宝柱</td>
-            <td class="c">2026/7/17</td>
-            <td class="num"><span class="age warm">46 天</span></td>
+            <td><div class="desc-t">物料超期加卡控（超期无法上机）</div></td>
+            <td><div class="desc-n">9/15 完成，加卡控后超期物料无法上机；测试无误确认关闭</div></td>
+            <td class="c">谭飞</td>
+            <td class="c">2026/06/25</td>
+            <td class="num"><span class="age hot">87 天</span></td>
             <td class="c"><span class="badge b-mid">中</span></td>
-            <td class="c">—</td>
-            <td class="c"><span class="st st-open">未关闭</span></td>
+            <td class="c">张晓山</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">2026/9/11</td>
           </tr>
           <tr>
             <td class="c">10</td>
-            <td><div class="desc-t">先打开批再挑片，流程卡显示不出来是否 MAP</div></td>
-            <td><div class="desc-n">已有技术方案：流程卡打印时若 wip-wo-source 表无数据，则用 wip-wo-bom-line 的工单号＋物料编码匹配 mmlot 表 IS_MAP 字段</div></td>
-            <td class="c">雷文翔</td>
-            <td class="c">2026/7/18</td>
-            <td class="num"><span class="age warm">45 天</span></td>
-            <td class="c"><span class="badge b-mid">中</span></td>
+            <td><div class="desc-t">不良报工出现在良品报工接口、不良数量重复报（报工接口）</div></td>
+            <td><div class="desc-n">接口逻辑已确认；测试无误确认关闭</div></td>
+            <td class="c">蔡金孝</td>
+            <td class="c">2026/06/29</td>
+            <td class="num"><span class="age hot">83 天</span></td>
+            <td class="c"><span class="badge b-high">高</span></td>
             <td class="c">—</td>
-            <td class="c"><span class="st st-plan">方案待开发</span></td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
           </tr>
           <tr>
             <td class="c">11</td>
-            <td><div class="desc-t">打入库标签无法根据条件匹配客户标签模板</div></td>
-            <td><div class="desc-n">标签匹配逻辑存在 BUG，目前靠手动打印</div></td>
-            <td class="c">肖枝贵</td>
-            <td class="c">2026/7/20</td>
-            <td class="num"><span class="age warm">43 天</span></td>
-            <td class="c"><span class="badge b-mid">中</span></td>
+            <td><div class="desc-t">扣料接口传不回（领料单据明细未找到）</div></td>
+            <td><div class="desc-n">研发BOM问题，已处理；测试无误确认关闭</div></td>
+            <td class="c">蔡金孝</td>
+            <td class="c">2026/06/30</td>
+            <td class="num"><span class="age hot">82 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
             <td class="c">—</td>
-            <td class="c"><span class="st st-open">未关闭</span></td>
-          </tr>
-          <tr class="row-fake">
-            <td class="c">12</td>
-            <td><div class="desc-t">晶圆片不属于本工单请确认</div></td>
-            <td><div class="desc-n">系统状态"已完成"，<b style="color:var(--red);">实际未完成</b>，需重新打开验证</div></td>
-            <td class="c">李志兵</td>
-            <td class="c">2026/7/30</td>
-            <td class="num"><span class="age warm">33 天</span></td>
-            <td class="c"><span class="badge b-high">高</span></td>
-            <td class="c">—</td>
-            <td class="c"><span class="st st-fake">标记完成·实际未完成</span></td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
           </tr>
           <tr>
+            <td class="c">12</td>
+            <td><div class="desc-t">在制品查询需报废数量和返工数量</div></td>
+            <td><div class="desc-n">建议以报表实现；需求驳回</div></td>
+            <td class="c">鄢培培</td>
+            <td class="c">2026/07/07</td>
+            <td class="num"><span class="age warm">75 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-reject">需求驳回</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr class="row-dev">
             <td class="c">13</td>
-            <td><div class="desc-t">流程卡物料获取 MAP 字段问题</div></td>
-            <td><div class="desc-n">同类 MAP 显示问题（与第 10 项相关）</div></td>
-            <td class="c">雷文翔</td>
-            <td class="c">2026/7/30</td>
-            <td class="num"><span class="age warm">33 天</span></td>
-            <td class="c"><span class="badge b-mid">中</span></td>
-            <td class="c">—</td>
-            <td class="c"><span class="st st-open">未关闭</span></td>
+            <td><div class="desc-t">晶圆片上机自动核算晶圆数量</div></td>
+            <td><div class="desc-n">进站前无批次信息无法关联BOM，可做到绑定机台颗数自动求和；9/20 测试，开发完成待测试</div></td>
+            <td class="c">李志兵</td>
+            <td class="c">2026/07/13</td>
+            <td class="num"><span class="age warm">69 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-dev">开发完成·待测试</span></td>
+            <td class="c plan">2026/9/24</td>
           </tr>
-          <tr class="row-block">
+          <tr>
             <td class="c">14</td>
-            <td><div class="desc-t">★ 磨划工单试跑，旧系统切换（重点）</div></td>
-            <td><div class="desc-n">8/13 因 ERP 测试环境过期无法联调；现环境已恢复，乙方后续未继续测试（9/1 核实）</div></td>
+            <td><div class="desc-t">财务盘点：扣料与入库不准</div></td>
+            <td><div class="desc-n">接口逻辑已修改，问题关闭；测试无误确认关闭</div></td>
+            <td class="c">迟雪</td>
+            <td class="c">2026/07/16</td>
+            <td class="num"><span class="age warm">66 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
             <td class="c">—</td>
-            <td class="c">—</td>
-            <td class="num">—</td>
-            <td class="c"><span class="badge b-high">高</span></td>
-            <td class="c">—</td>
-            <td class="c"><span class="st st-block">联调停滞</span></td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
           </tr>
-          <tr class="row-block">
+          <tr>
             <td class="c">15</td>
-            <td><div class="desc-t">★ 返工单试跑，旧系统切换（重点）</div></td>
-            <td><div class="desc-n">8/13 因 ERP 测试环境过期无法联调；现环境已恢复，乙方后续未继续测试（9/1 核实）</div></td>
-            <td class="c">—</td>
-            <td class="c">—</td>
-            <td class="num">—</td>
-            <td class="c"><span class="badge b-high">高</span></td>
-            <td class="c">—</td>
-            <td class="c"><span class="st st-block">联调停滞</span></td>
+            <td><div class="desc-t">SPC报表（按产品、封装形式等字段查询）</div></td>
+            <td><div class="desc-n">组织 EDC/SPC 功能再培训，推动数据建模及使用；推进中</div></td>
+            <td class="c">金伟伟</td>
+            <td class="c">2026/07/16</td>
+            <td class="num"><span class="age warm">66 天</span></td>
+            <td class="c"><span class="badge b-mid">中</span></td>
+            <td class="c">黄思霖</td>
+            <td class="c"><span class="st st-open">未关闭·推进中</span></td>
+            <td class="c plan">2026/9/18</td>
           </tr>
           <tr>
             <td class="c">16</td>
-            <td><div class="desc-t">物料入库，界面会直接携带默认仓位</div></td>
-            <td><div class="desc-n">栏位添加默认值（8/13 核对在列）</div></td>
-            <td class="c">—</td>
-            <td class="c">2026/8/11</td>
-            <td class="num"><span class="age">21 天</span></td>
-            <td class="c"><span class="badge b-high">高</span></td>
-            <td class="c">张晓山</td>
-            <td class="c"><span class="st st-dev">已指派·未关闭</span></td>
+            <td><div class="desc-t">晶圆修改数量：剩余数量栏直接修改（刷新慢）</div></td>
+            <td><div class="desc-n">若报料接口不调整、无数量为0的晶圆片则无需此功能；12. 需求挂起</div></td>
+            <td class="c">刘宝柱</td>
+            <td class="c">2026/07/17</td>
+            <td class="num"><span class="age warm">65 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-hold">需求挂起</span></td>
+            <td class="c plan">2026/9/24</td>
           </tr>
           <tr>
             <td class="c">17</td>
-            <td><div class="desc-t">进站提示报错（具体见截图）</div></td>
-            <td><div class="desc-n">系统 BUG（8/13 核对在列）</div></td>
-            <td class="c">—</td>
-            <td class="c">—</td>
-            <td class="num">—</td>
-            <td class="c"><span class="badge b-high">高</span></td>
-            <td class="c">张晓山</td>
-            <td class="c"><span class="st st-dev">已指派·未关闭</span></td>
+            <td><div class="desc-t">物料批动作主料需修改数量功能（中途报废）</div></td>
+            <td><div class="desc-n">需添加物料批报废接口；若报料接口不调整则无需此功能；12. 需求挂起</div></td>
+            <td class="c">刘宝柱</td>
+            <td class="c">2026/07/17</td>
+            <td class="num"><span class="age warm">65 天</span></td>
+            <td class="c"><span class="badge b-mid">中</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-hold">需求挂起</span></td>
+            <td class="c plan">2026/9/18</td>
           </tr>
           <tr>
             <td class="c">18</td>
-            <td><div class="desc-t">批次入库异常：FStockStatusId 中 FNumber 值为 KCZT01_SYS 不对，需调整为 KCZT001</div></td>
-            <td><div class="desc-n">缺少库存必填字段（8/17 核对新增）</div></td>
+            <td><div class="desc-t">先开批再挑片，流程卡不显示是否MAP</div></td>
+            <td><div class="desc-n">9/18 完成：wip-wo-source 无数据时用 wip-wo-bom-line 工单号+物料编码匹配 mmlot 表 IS_MAP；测试无误确认关闭</div></td>
+            <td class="c">雷文翔</td>
+            <td class="c">2026/07/18</td>
+            <td class="num"><span class="age warm">64 天</span></td>
+            <td class="c"><span class="badge b-mid">中</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">2026/9/18</td>
+          </tr>
+          <tr>
+            <td class="c">19</td>
+            <td><div class="desc-t">打入库标签无法按条件匹配客户标签模板（目前手动）</div></td>
+            <td><div class="desc-n">标签匹配逻辑存在 BUG，待修复</div></td>
+            <td class="c">肖枝贵</td>
+            <td class="c">2026/07/20</td>
+            <td class="num"><span class="age warm">62 天</span></td>
+            <td class="c"><span class="badge b-mid">中</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-open">未关闭·推进中</span></td>
+            <td class="c plan">2026/9/24</td>
+          </tr>
+          <tr>
+            <td class="c">20</td>
+            <td><div class="desc-t">扣料数据异常（ERP与MES不一致）</div></td>
+            <td><div class="desc-n">同问题14（接口逻辑已改）；测试无误确认关闭</div></td>
+            <td class="c">蔡金孝</td>
+            <td class="c">2026/07/20</td>
+            <td class="num"><span class="age warm">62 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">21</td>
+            <td><div class="desc-t">计划投单无法生成批号打流程卡</div></td>
+            <td><div class="desc-n">偶发现象待后续观察；测试无误确认关闭</div></td>
+            <td class="c">雷文翔</td>
+            <td class="c">2026/07/20</td>
+            <td class="num"><span class="age warm">62 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">22</td>
+            <td><div class="desc-t">数据采集录入问题</div></td>
+            <td><div class="desc-n">内部流程确认，与 MES 系统无关；测试无误确认关闭</div></td>
+            <td class="c">刘盼</td>
+            <td class="c">2026/07/20</td>
+            <td class="num"><span class="age warm">62 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">23</td>
+            <td><div class="desc-t">内部验证单入库到对应新增仓位</div></td>
+            <td><div class="desc-n">已完成；测试无误确认关闭</div></td>
+            <td class="c">孙浩然</td>
+            <td class="c">2026/07/20</td>
+            <td class="num"><span class="age warm">62 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">24</td>
+            <td><div class="desc-t">入库生产日期改为取投料时间</div></td>
+            <td><div class="desc-n">已完成；测试无误确认关闭</div></td>
+            <td class="c">谭飞</td>
+            <td class="c">2026/07/21</td>
+            <td class="num"><span class="age warm">61 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">25</td>
+            <td><div class="desc-t">工艺路线拷贝存在 BUG（内码生成规则）</div></td>
+            <td><div class="desc-n">测试无误确认关闭</div></td>
+            <td class="c">蒋雨涛</td>
+            <td class="c">2026/07/21</td>
+            <td class="num"><span class="age warm">61 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">26</td>
+            <td><div class="desc-t">交班管理界面增加暂存数据界面</div></td>
+            <td><div class="desc-n">需求重新确认中，开发未启动</div></td>
+            <td class="c">龙周</td>
+            <td class="c">2026/07/22</td>
+            <td class="num"><span class="age warm">60 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-open">未关闭·推进中</span></td>
+            <td class="c plan">2026/9/22</td>
+          </tr>
+          <tr>
+            <td class="c">27</td>
+            <td><div class="desc-t">晶圆扫入出现重复芯片</div></td>
+            <td><div class="desc-n">已完成；测试无误确认关闭</div></td>
+            <td class="c">马丽</td>
+            <td class="c">2026/07/23</td>
+            <td class="num"><span class="age warm">59 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">28</td>
+            <td><div class="desc-t">报废品物料消耗明细 / 报废品数量及原因明细报表</div></td>
+            <td><div class="desc-n">报表新增需求；测试无误确认关闭</div></td>
+            <td class="c">迟雪</td>
+            <td class="c">2026/07/23</td>
+            <td class="num"><span class="age warm">59 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">29</td>
+            <td><div class="desc-t">返工跳站问题</div></td>
+            <td><div class="desc-n">偶发现象待后续观察；12. 需求挂起</div></td>
+            <td class="c">鄢培培</td>
+            <td class="c">2026/07/24</td>
+            <td class="num"><span class="age warm">58 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-hold">需求挂起</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">30</td>
+            <td><div class="desc-t">晶圆片上机界面累计求和及数量显示</div></td>
+            <td><div class="desc-n">同问题16；测试无误确认关闭</div></td>
+            <td class="c">李志兵</td>
+            <td class="c">2026/07/28</td>
+            <td class="num"><span class="age warm">54 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">31</td>
+            <td><div class="desc-t">出站界面显示物料不足</div></td>
+            <td><div class="desc-n">偶发现象待观察，9/18 完成；测试无误确认关闭</div></td>
+            <td class="c">罗啟鹏</td>
+            <td class="c">2026/07/28</td>
+            <td class="num"><span class="age warm">54 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">32</td>
+            <td><div class="desc-t">返工工步与工艺路线工步不一致</div></td>
+            <td><div class="desc-n">偶发现象待后续观察；12. 需求挂起</div></td>
+            <td class="c">李潇</td>
+            <td class="c">2026/07/29</td>
+            <td class="num"><span class="age warm">53 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-hold">需求挂起</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">33</td>
+            <td><div class="desc-t">批次进站报系统错误</div></td>
+            <td><div class="desc-n">偶发现象待后续观察；12. 需求挂起</div></td>
+            <td class="c">尹乐乐</td>
+            <td class="c">2026/07/29</td>
+            <td class="num"><span class="age warm">53 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-hold">需求挂起</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">34</td>
+            <td><div class="desc-t">晶圆片不属于本工单请确认（高优）</div></td>
+            <td><div class="desc-n">此前标记完成实际未完成；9/10 已真正完成，测试无误确认关闭</div></td>
+            <td class="c">李志兵</td>
+            <td class="c">2026/07/30</td>
+            <td class="num"><span class="age warm">52 天</span></td>
+            <td class="c"><span class="badge b-high">高</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr class="row-dev">
+            <td class="c">35</td>
+            <td><div class="desc-t">工单子批次合批无法入库</div></td>
+            <td><div class="desc-n">去除该卡控，合批规则控制为只允许同根批次合批；9/20 测试，开发完成待测试</div></td>
+            <td class="c">蔡金孝</td>
+            <td class="c">2026/07/30</td>
+            <td class="num"><span class="age warm">52 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-dev">开发完成·待测试</span></td>
+            <td class="c plan">2026/9/24</td>
+          </tr>
+          <tr>
+            <td class="c">36</td>
+            <td><div class="desc-t">流程卡物料获取 MAP 字段问题</div></td>
+            <td><div class="desc-n">同问题18（9/18 已完成）；测试无误确认关闭</div></td>
+            <td class="c">雷文翔</td>
+            <td class="c">2026/07/30</td>
+            <td class="num"><span class="age warm">52 天</span></td>
+            <td class="c"><span class="badge b-mid">中</span></td>
+            <td class="c">—</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">37</td>
+            <td><div class="desc-t">流程卡在最后一个工步出站可打标签</div></td>
+            <td><div class="desc-n">增加批次 FIN 状态允许打印包装标签；测试无误确认关闭</div></td>
+            <td class="c">黄辉富</td>
+            <td class="c">2026/07/30</td>
+            <td class="num"><span class="age warm">52 天</span></td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">2026/9/18</td>
+          </tr>
+          <tr class="row-block">
+            <td class="c">38</td>
+            <td><div class="desc-t">磨划工单试跑、旧系统切换（重点）</div></td>
+            <td><div class="desc-n">ERP 测试环境过期，暂时无法联调测试；高优重点，计划时间待定</div></td>
+            <td class="c">—</td>
+            <td class="c">—</td>
+            <td class="num">—</td>
+            <td class="c"><span class="badge b-high">高</span></td>
+            <td class="c">IT/颜江明</td>
+            <td class="c"><span class="st st-block">联调停滞·重点</span></td>
+            <td class="c plan tbd">TBD</td>
+          </tr>
+          <tr class="row-block">
+            <td class="c">39</td>
+            <td><div class="desc-t">返工单试跑、旧系统切换（重点）</div></td>
+            <td><div class="desc-n">9/15 明确方案：①返工批次以物料批方式传至 MES ②批次入库时传物料批批号；仍待联调，高优重点</div></td>
+            <td class="c">—</td>
+            <td class="c">—</td>
+            <td class="num">—</td>
+            <td class="c"><span class="badge b-high">高</span></td>
+            <td class="c">黄思霖/颜江明</td>
+            <td class="c"><span class="st st-block">联调停滞·重点</span></td>
+            <td class="c plan">2026/9/24</td>
+          </tr>
+          <tr>
+            <td class="c">40</td>
+            <td><div class="desc-t">物料入库界面直接携带默认仓位</div></td>
+            <td><div class="desc-n">栏位添加默认值；测试无误确认关闭（8/11）</div></td>
+            <td class="c">—</td>
+            <td class="c">2026/08/11</td>
+            <td class="num"><span class="age ">40 天</span></td>
+            <td class="c"><span class="badge b-high">高</span></td>
+            <td class="c">张晓山</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">2026/9/11</td>
+          </tr>
+          <tr>
+            <td class="c">41</td>
+            <td><div class="desc-t">进站提示报错（系统 BUG）</div></td>
+            <td><div class="desc-n">系统 BUG；测试无误确认关闭</div></td>
             <td class="c">—</td>
             <td class="c">—</td>
             <td class="num">—</td>
             <td class="c"><span class="badge b-high">高</span></td>
             <td class="c">张晓山</td>
-            <td class="c"><span class="st st-dev">已指派·未关闭</span></td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">42</td>
+            <td><div class="desc-t">批次入库异常（FStockStatusId 值 KCZT01_SYS 应为 KCZT001）</div></td>
+            <td><div class="desc-n">缺少库存必填字段；测试无误确认关闭</div></td>
+            <td class="c">—</td>
+            <td class="c">2026/08/17</td>
+            <td class="num"><span class="age ">34 天</span></td>
+            <td class="c"><span class="badge b-high">高</span></td>
+            <td class="c">张晓山</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">2026/9/11</td>
+          </tr>
+          <tr>
+            <td class="c">43</td>
+            <td><div class="desc-t">整批报废只生成不良品报工、无良品报工致无法上报</div></td>
+            <td><div class="desc-n">9/15 已处理返工同工步报工不可重复上报及未报工无法入库卡控；测试无误确认关闭</div></td>
+            <td class="c">—</td>
+            <td class="c">—</td>
+            <td class="num">—</td>
+            <td class="c"><span class="badge b-high">高</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">2026/9/11</td>
+          </tr>
+          <tr>
+            <td class="c">44</td>
+            <td><div class="desc-t">不良品报工：不合格选单数量不能超不合格数量；报工失败手动成功</div></td>
+            <td><div class="desc-n">9/10 起数据传失败数为 1；测试无误确认关闭</div></td>
+            <td class="c">—</td>
+            <td class="c">—</td>
+            <td class="num">—</td>
+            <td class="c"><span class="badge b-high">高</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">2026/9/11</td>
+          </tr>
+          <tr>
+            <td class="c">45</td>
+            <td><div class="desc-t">返工工艺路线不一致调整</div></td>
+            <td><div class="desc-n">9/10 已完成；测试无误确认关闭</div></td>
+            <td class="c">颜江明</td>
+            <td class="c">—</td>
+            <td class="num">—</td>
+            <td class="c"><span class="badge b-low">低</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
+          </tr>
+          <tr>
+            <td class="c">46</td>
+            <td><div class="desc-t">晶圆共用样品工单内部验证工单</div></td>
+            <td><div class="desc-n">预计 9/11 完成，实际 9/18 完成；测试无误确认关闭</div></td>
+            <td class="c">—</td>
+            <td class="c">—</td>
+            <td class="num">—</td>
+            <td class="c"><span class="badge b-high">高</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">2026/9/22</td>
+          </tr>
+          <tr>
+            <td class="c">47</td>
+            <td><div class="desc-t">PC 进站报错</div></td>
+            <td><div class="desc-n">9/18 完成；测试无误确认关闭</div></td>
+            <td class="c">—</td>
+            <td class="c">—</td>
+            <td class="num">—</td>
+            <td class="c"><span class="badge b-mid">中</span></td>
+            <td class="c">颜江明</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">2026/9/18</td>
+          </tr>
+          <tr>
+            <td class="c">48</td>
+            <td><div class="desc-t">流程卡生产周期码选错字段调整</div></td>
+            <td><div class="desc-n">9/18 完成；测试无误确认关闭（本周新增）</div></td>
+            <td class="c">颜江明</td>
+            <td class="c">—</td>
+            <td class="num">—</td>
+            <td class="c"><span class="badge b-na">未登记</span></td>
+            <td class="c">IT/颜江明</td>
+            <td class="c"><span class="st st-closed">已闭环</span></td>
+            <td class="c plan">—</td>
           </tr>
         </tbody>
       </table>
     </div>
+
+    <div class="summary-box">
+      <h3>存量问题总结</h3>
+      <ul class="sum-list">
+        <li><span class="sum-tag ok">已关闭</span><p>近两周完成问题测试并关闭 <b>11 项</b>，累计一共关闭 <b>30 项</b>。</p></li>
+        <li><span class="sum-tag blue">测试中</span><p><b>2 项</b>正在推进测试（晶圆上机颗数自动求和、子批次合批入库）。</p></li>
+        <li><span class="sum-tag gray">不计开发</span><p>除去需求驳回与需求挂起共 <b>8 项</b>。</p></li>
+        <li><span class="sum-tag amber">待实施</span><p>问题 <b>#15 SPC 报表</b>需要做报表、<b>#19 客户标签</b>打不出需实施，待完成。</p></li>
+        <li><span class="sum-tag red">实际待开发</span><p>实际需要开发 <b>5 项</b>：返工工单、磨划工单、载具保养功能、UPH 维护调整、交接（交班）界面开发。</p></li>
+      </ul>
+    </div>
   </section>
 
   <footer>
-    数据依据：MES 需求功能 &amp; ISSUE 跟踪表（8/13、8/17 核对节点，9/1 现场反馈更新） ｜ 汇总日期：2026 年 9 月 1 日<br>
-    本材料用于内部汇报及与开发方（乙方）交涉对账，明细可与原表逐条核对。
+    MES 系统需求与问题开发进度汇总 · 乙方对账材料 ｜ 数据截至 2026-09-20 ｜ 共 48 项：已闭环 30、待测试 2、联调停滞 3、挂起 6、推进中 5、驳回 2
   </footer>
   </main>
-
 </div>
 </body>
 </html>
